@@ -1,0 +1,13 @@
+{
+  "name": "automatic-owl",
+  "version": "0.0.1",
+  "description": "My website",
+  "repository": "git@github.com:mikrostew/automatic-owl.git",
+  "author": "Michael Stewart <mikrostew@gmail.com>",
+  "license": "None, yet",
+  "private": false,
+  "volta": {
+    "node": "16.13.0",
+    "yarn": "1.22.17"
+  }
+}
