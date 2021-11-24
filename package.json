@@ -11,7 +11,7 @@
     "yarn": "1.22.17"
   },
   "scripts": {
-    "build": "eleventy",
+    "build": "rm -rf _site/; eleventy",
     "serve": "eleventy --serve"
   },
   "devDependencies": {
