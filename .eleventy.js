@@ -2,6 +2,8 @@
 module.exports = function (eleventyConfig) {
   // make sure favicon is copied over
   eleventyConfig.addPassthroughCopy('src/favicon.ico');
+  // copy `img/` to `_site/img/`
+  eleventyConfig.addPassthroughCopy('img');
 
   // other config that doesn't use the API
   return {
