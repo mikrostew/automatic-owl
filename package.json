@@ -5,10 +5,9 @@
   "repository": "git@github.com:mikrostew/automatic-owl.git",
   "author": "Michael Stewart <mikrostew@gmail.com>",
   "license": "None, yet",
-  "private": false,
   "volta": {
-    "node": "16.13.0",
-    "yarn": "1.22.17"
+    "node": "18.12.0",
+    "yarn": "3.2.4"
   },
   "scripts": {
     "build": "rm -rf _site/; eleventy",
