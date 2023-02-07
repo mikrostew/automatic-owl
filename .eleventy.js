@@ -4,6 +4,8 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/favicon.ico');
   // copy `img/` to `_site/img/`
   eleventyConfig.addPassthroughCopy('img');
+  // make sure GPG key is copied over
+  eleventyConfig.addPassthroughCopy('src/automaticowl.pub');
 
   // other config that doesn't use the API
   return {
