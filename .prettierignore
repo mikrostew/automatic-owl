@@ -1,0 +1,8 @@
+# Node
+node_modules
+
+# eleventy
+_site
+
+# Yarn3
+.yarn/install-state.gz
