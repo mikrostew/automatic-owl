@@ -1,15 +1,32 @@
 import { promisify } from "node:util";
 import { execFile } from "node:child_process";
-import { extname, parse, sep } from "node:path";
+import { extname, join, parse, sep } from "node:path";
+import { readFile, writeFile } from "node:fs/promises";
 
 const EXTS_TO_INCLUDE = [".md", ".njk"];
 const DIRS_TO_IGNORE = ["_layouts"];
 
 const execFilePromise = promisify(execFile);
 
-async function last20Commits() {
-  const { stdout } = await execFilePromise("git", ["rev-list", "-n20", "HEAD"]);
-  return stdout.trim().split("\n");
+// TODO: I should convert this to TS
+
+async function getPrevCommitInfo(numCommits) {
+  const { stdout } = await execFilePromise("git", [
+    "log",
+    "-n",
+    numCommits,
+    "--format=%H %ct",
+    "HEAD",
+  ]);
+  // each line is '<commit-hash> <timestamp>'
+  const commitInfos = stdout
+    .trim()
+    .split("\n")
+    .map((line) => {
+      const [hash, timestamp] = line.split(" ");
+      return { hash, timestamp: parseInt(timestamp) };
+    });
+  return commitInfos;
 }
 
 async function filesModifiedInCommit(commitSha) {
@@ -36,13 +53,86 @@ function shouldIncludeFile(file) {
   return false;
 }
 
-const lastCommits = await last20Commits();
-
-for (const commit of lastCommits) {
-  const modifiedFiles = await filesModifiedInCommit(commit);
-  for (const file of modifiedFiles) {
-    if (shouldIncludeFile(file)) {
-      console.log("(update)", file, commit);
+async function getFileRevisions(commitInfos) {
+  let fileRevisions = {};
+  for (const commit of commitInfos) {
+    const modifiedFiles = await filesModifiedInCommit(commit.hash);
+    for (const file of modifiedFiles) {
+      if (shouldIncludeFile(file)) {
+        if (fileRevisions[file] === undefined) {
+          fileRevisions[file] = [
+            { timestamp: commit.timestamp, id: commit.hash },
+          ];
+        } else {
+          fileRevisions[file].push({
+            timestamp: commit.timestamp,
+            id: commit.hash,
+          });
+        }
+      }
     }
   }
+  return fileRevisions;
 }
+
+function dataFileFor(filePath) {
+  const parsed = parse(filePath);
+  return `${join(parsed.dir, parsed.name)}.11tydata.json`;
+}
+
+async function updateFileRevisions(fileRevisions) {
+  for (const filePath in fileRevisions) {
+    const dataFile = dataFileFor(filePath);
+    let dataFileContents;
+    try {
+      const unparsed = await readFile(dataFile, { encoding: "utf8" });
+      dataFileContents = JSON.parse(unparsed);
+    } catch (err) {
+      if (err instanceof Error && err.code === "ENOENT") {
+        // file doesn't exist, that's fine make a new one
+        dataFileContents = {};
+      } else {
+        // otherwise something is wrong
+        throw err;
+      }
+    }
+    if (dataFileContents.revisions === undefined) {
+      dataFileContents.revisions = [];
+    }
+    // inefficient, but the numbers are small-ish so ¯\_(ツ)_/¯
+    for (const revisionInfo of fileRevisions[filePath]) {
+      // if it's not in there, add it
+      if (
+        !dataFileContents.revisions.some(
+          (r) => r.timestamp === revisionInfo.timestamp
+        )
+      ) {
+        dataFileContents.revisions.push(revisionInfo);
+      }
+    }
+    await writeFile(dataFile, JSON.stringify(dataFileContents, null, 2), {
+      encoding: "utf8",
+    });
+  }
+}
+
+// go back 20 commits, that should be plenty
+const commitInfos = await getPrevCommitInfo(20);
+const fileRevisions = await getFileRevisions(commitInfos);
+
+await updateFileRevisions(fileRevisions);
+
+// this is what the json for this stuff will look like
+// (ex: src/index.11tydata.json)
+// {
+//   ...
+//   // I don't think it matters if this is sorted or not (at least for now)
+//   revisions: [
+//     {
+//       timestamp: 1638389705,
+//       id: b4f4a44463c982fec519d3864144b2914de045aa
+//     },
+//     ...
+//   ],
+//   ...
+// }
