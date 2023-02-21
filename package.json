@@ -13,6 +13,9 @@
     "build": "rm -rf _site/; eleventy",
     "serve": "eleventy --serve"
   },
+  "prettier": {
+    "singleQuote": true
+  },
   "devDependencies": {
     "@11ty/eleventy": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "latest",

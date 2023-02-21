@@ -1,43 +1,43 @@
-import { promisify } from "node:util";
-import { execFile } from "node:child_process";
-import { extname, join, parse, sep } from "node:path";
-import { readFile, writeFile } from "node:fs/promises";
+import { promisify } from 'node:util';
+import { execFile } from 'node:child_process';
+import { extname, join, parse, sep } from 'node:path';
+import { readFile, writeFile } from 'node:fs/promises';
 
-const EXTS_TO_INCLUDE = [".md", ".njk"];
-const DIRS_TO_IGNORE = ["_layouts"];
+const EXTS_TO_INCLUDE = ['.md', '.njk'];
+const DIRS_TO_IGNORE = ['_layouts'];
 
 const execFilePromise = promisify(execFile);
 
 // TODO: I should convert this to TS
 
 async function getPrevCommitInfo(numCommits) {
-  const { stdout } = await execFilePromise("git", [
-    "log",
-    "-n",
+  const { stdout } = await execFilePromise('git', [
+    'log',
+    '-n',
     numCommits,
-    "--format=%H %ct",
-    "HEAD",
+    '--format=%H %ct',
+    'HEAD',
   ]);
   // each line is '<commit-hash> <timestamp>'
   const commitInfos = stdout
     .trim()
-    .split("\n")
+    .split('\n')
     .map((line) => {
-      const [hash, timestamp] = line.split(" ");
+      const [hash, timestamp] = line.split(' ');
       return { hash, timestamp: parseInt(timestamp) };
     });
   return commitInfos;
 }
 
 async function filesModifiedInCommit(commitSha) {
-  const { stdout } = await execFilePromise("git", [
-    "diff-tree",
-    "--no-commit-id",
-    "--name-only",
-    "-r",
+  const { stdout } = await execFilePromise('git', [
+    'diff-tree',
+    '--no-commit-id',
+    '--name-only',
+    '-r',
     commitSha,
   ]);
-  return stdout.trim().split("\n");
+  return stdout.trim().split('\n');
 }
 
 function shouldIncludeFile(file) {
@@ -85,10 +85,10 @@ async function updateFileRevisions(fileRevisions) {
     const dataFile = dataFileFor(filePath);
     let dataFileContents;
     try {
-      const unparsed = await readFile(dataFile, { encoding: "utf8" });
+      const unparsed = await readFile(dataFile, { encoding: 'utf8' });
       dataFileContents = JSON.parse(unparsed);
     } catch (err) {
-      if (err instanceof Error && err.code === "ENOENT") {
+      if (err instanceof Error && err.code === 'ENOENT') {
         // file doesn't exist, that's fine make a new one
         dataFileContents = {};
       } else {
@@ -111,7 +111,7 @@ async function updateFileRevisions(fileRevisions) {
       }
     }
     await writeFile(dataFile, JSON.stringify(dataFileContents, null, 2), {
-      encoding: "utf8",
+      encoding: 'utf8',
     });
   }
 }
