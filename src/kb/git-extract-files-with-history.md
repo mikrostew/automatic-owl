@@ -223,4 +223,4 @@ Ref 'refs/heads/master' was rewritten
 
 Again, that left me with the history I expected: 70 commits that touched that file. I ran `gitk` and verified that it had the entire history including the rename. All good.
 
-TODO: making this run faster with tmpfs.
+==TODO: making this run faster with tmpfs.==

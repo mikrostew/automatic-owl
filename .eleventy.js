@@ -1,3 +1,6 @@
+const markdownIt = require('markdown-it');
+const markdownItMark = require('markdown-it-mark');
+
 function hasUpdates(item) {
   return item.data?.revisions?.length > 0;
 }
@@ -42,6 +45,12 @@ module.exports = function (eleventyConfig) {
 
   // collections to display on the home page
   eleventyConfig.addCollection('updated', updatedThings);
+
+  // markdown config
+  eleventyConfig.setLibrary(
+    'md',
+    markdownIt({ html: true }).use(markdownItMark)
+  );
 
   // other config that doesn't use the API
   return {
