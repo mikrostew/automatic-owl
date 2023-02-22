@@ -1,0 +1,33 @@
+name: Update Revision Info
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  update-revision-info:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+
+      - name: Volta Setup
+        uses: uses: volta-cli/action@v3
+
+      - name: Git Config Setup
+        run: |
+          git config user.name "[github workflow bot]"
+          git config user.email ""
+
+      - name: Run Update Script
+        run: node scripts/update-modification-times.js
+
+      - name: Commit If Necessary
+        run: |
+          # Check for modified or untracked files
+          if [ "$(git status -s)" != "" ]
+          then
+            git add .
+            git commit -m "auto-update revision info"
+            git push origin master
+          fi

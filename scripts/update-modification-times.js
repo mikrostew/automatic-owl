@@ -5,6 +5,7 @@ import { readFile, writeFile } from 'node:fs/promises';
 
 const EXTS_TO_INCLUDE = ['.md', '.njk'];
 const DIRS_TO_IGNORE = ['_layouts'];
+const FILES_TO_IGNORE = ['README.md'];
 
 const execFilePromise = promisify(execFile);
 
@@ -42,6 +43,9 @@ async function filesModifiedInCommit(commitSha) {
 
 function shouldIncludeFile(file) {
   if (EXTS_TO_INCLUDE.includes(extname(file))) {
+    if (FILES_TO_IGNORE.includes(file)) {
+      return false;
+    }
     const dirs = parse(file).dir.split(sep);
     for (const dir of dirs) {
       if (DIRS_TO_IGNORE.includes(dir)) {
