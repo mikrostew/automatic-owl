@@ -10,6 +10,9 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
+        with:
+          # this is how far back the script goes
+          fetch-depth: 20
 
       - name: Volta Setup
         uses: volta-cli/action@v3
