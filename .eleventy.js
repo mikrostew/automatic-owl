@@ -2,16 +2,33 @@ function hasUpdates(item) {
   return item.data?.revisions?.length > 0;
 }
 
-function setLastUpdated(item) {
+function setLastUpdatedTimestamp(item) {
   const timestamps = item.data.revisions.map((r) => r.timestamp);
   // sort descending
   timestamps.sort((a, b) => b - a);
-  item.lastUpdated = timestamps[0];
+  item.lastUpdatedTimestamp = timestamps[0];
+  return item;
+}
+
+function setLastUpdated(item) {
+  const date = new Date(item.lastUpdatedTimestamp * 1000);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  item.lastUpdated = `${year}-${month}-${day}`;
   return item;
 }
 
 function updatedThings(collectionApi) {
-  return collectionApi.getAll().filter(hasUpdates).map(setLastUpdated);
+  const recentlyUpdated = collectionApi
+    .getAll()
+    .filter(hasUpdates)
+    .map(setLastUpdatedTimestamp)
+    .map(setLastUpdated);
+  recentlyUpdated.sort(
+    (a, b) => b.lastUpdatedTimestamp - a.lastUpdatedTimestamp
+  );
+  return recentlyUpdated;
 }
 
 // see https://www.11ty.dev/docs/config/
