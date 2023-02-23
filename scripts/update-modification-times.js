@@ -3,7 +3,7 @@ import { execFile } from 'node:child_process';
 import { extname, join, parse, sep } from 'node:path';
 import { readFile, writeFile } from 'node:fs/promises';
 
-const EXTS_TO_INCLUDE = ['.md', '.njk'];
+const EXTS_TO_INCLUDE = ['.md', '.njk', '.html'];
 const DIRS_TO_IGNORE = ['_layouts'];
 const FILES_TO_IGNORE = ['README.md'];
 
