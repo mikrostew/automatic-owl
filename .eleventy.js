@@ -47,12 +47,11 @@ function toLastUpdated(revisions) {
 
 // see https://www.11ty.dev/docs/config/
 module.exports = function (eleventyConfig) {
-  // make sure favicon is copied over
   eleventyConfig.addPassthroughCopy('src/favicon.ico');
-  // copy `img/` to `_site/img/`
-  eleventyConfig.addPassthroughCopy('img');
-  // make sure GPG key is copied over
   eleventyConfig.addPassthroughCopy('src/automaticowl.pub');
+  // folders to copy
+  eleventyConfig.addPassthroughCopy('img');
+  eleventyConfig.addPassthroughCopy('fonts');
 
   // collections to display on the home page
   eleventyConfig.addCollection('updated', updatedThings);

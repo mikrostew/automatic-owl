@@ -1,0 +1,100 @@
+---
+title: Oops! Page Not Found
+description: 404 Page
+permalink: 404.html
+
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- notice me, SEO senpai -->
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ title }} | Automatic Owl</title>
+    <meta name="description" content="{{ description }}">
+    <!-- twitter -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="{{ title }} | Automatic Owl">
+    <meta name="twitter:description" content="{{ description }}">
+    <meta name="twitter:creator" content="@mikrostew">
+    <meta name="twitter:image" content="https://automaticowl.net/img/site-logo.png">
+    <!-- open graph -->
+    <meta property="og:title" content="{{ title }} | Automatic Owl" />
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://automaticowl.net{{ page.url }}" />
+    <meta property="og:image" content="https://automaticowl.net/img/site-logo.png" />
+    <meta property="og:description" content="{{ description }}" />
+    <meta property="og:site_name" content="Automatic Owl" />
+
+    <!-- using "More Perfect DOS VGA" from http://laemeur.sdf.org/fonts/ -->
+    <style>
+    @font-face {
+      font-family: 'DOS-VGA';
+      src: url('/fonts/MorePerfectDOSVGA.woff') format('woff'),
+           url('/fonts/MorePerfectDOSVGA.ttf') format('truetype');
+    }
+    body {
+      font: 16px "DOS-VGA", Consolas, "Liberation Mono", Menlo, Courier, monospace;
+      color: #f8f8fc;
+      background-color: #0f30b7;
+      max-width: 700px;
+      margin: 80px auto;
+    }
+    h2 {
+      display: inline-block;
+      color: #0f30b7;
+      background-color: #b7b7b7;
+      font-size: 16px;
+      text-align: center;
+      padding: 0 9px;
+    }
+    a {
+      color: #f8f8fc;
+    }
+    div.center {
+      text-align: center;
+    }
+    p.continue {
+      margin-top: 32px;
+    }
+    ul {
+      list-style: none;
+      margin-left: 0;
+      padding-left: 0;
+    }
+    li {
+      padding-left: 3ch;
+      text-indent: -3ch;
+    }
+    li:before {
+      content: "*\a0\a0";
+    }
+    /* animate the cursor - adapted from https://codepen.io/ArtemGordinsky/pen/GnLBq */
+    span.cursor {
+      -webkit-animation: 1s blink step-end infinite;
+      -moz-animation: 1s blink step-end infinite;
+      -ms-animation: 1s blink step-end infinite;
+      -o-animation: 1s blink step-end infinite;
+      animation: 1s blink step-end infinite;
+    }
+    @keyframes "blink" { from, to { color: transparent; } 50% { color: #f8f8fc; } }
+    @-moz-keyframes blink { from, to { color: transparent; } 50% { color: #f8f8fc; } }
+    @-webkit-keyframes "blink" { from, to { color: transparent; } 50% { color: #f8f8fc; } }
+    @-ms-keyframes "blink" { from, to { color: transparent; } 50% { color: #f8f8fc; } }
+    @-o-keyframes "blink" { from, to { color: transparent; } 50% { color: #f8f8fc; } }
+    </style>
+  </head>
+  <body>
+<!-- inspired by https://klaus.dk/404/ -->
+
+<div class="center"><h2>Page Not Found</h2></div>
+<p>A fatal exception 404 has occurred. The offending page has been terminated.</p>
+<ul>
+<li>Double check the link you followed. If I moved a page you were looking for, my apologies, please <a href="mailto:mikrostew@gmail.com">let me know</a>.</li>
+<li>Go to the <a href="/">home page</a>, which has links to (almost) everything.</li>
+<li>Press CTRL+ALT+DELETE to restart your computer. You will lose any unsaved information in all applications.</li>
+</ul>
+<div class="center"><p class="continue">Press any key to continue <span class="cursor">_</span></p></div>
+  </body>
+</html>
