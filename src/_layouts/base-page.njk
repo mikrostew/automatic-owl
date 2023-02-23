@@ -39,6 +39,7 @@ description: TODO
       </header>
       <h1>{{ title }}</h1>
       <p>{{ description }}</p>
+      <p>(<a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ page.inputPath }}" title="See the history of this page on GitHub">{{ revisions.length }} revisions</a>, last updated {{ revisions | toLastUpdated }})</p>
 {{ content | safe }}
       <footer>
         <!-- TODO -->

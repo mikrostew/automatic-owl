@@ -14,7 +14,7 @@ layout: base-page
 <h2>Recently Updated</h2>
 
 {% for item in collections.updated %}
-  <p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.lastUpdated }})</p>
+  <p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.revisions | toLastUpdated }})</p>
 {% endfor %}
 
 </section>

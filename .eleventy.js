@@ -1,6 +1,15 @@
 const markdownIt = require('markdown-it');
 const markdownItMark = require('markdown-it-mark');
 
+// TODO: this is not quite right, because timezones, but close enough for now
+function unixTimestampToDateStr(timestamp) {
+  const date = new Date(timestamp * 1000);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
+}
+
 function hasUpdates(item) {
   return item.data?.revisions?.length > 0;
 }
@@ -13,25 +22,27 @@ function setLastUpdatedTimestamp(item) {
   return item;
 }
 
-function setLastUpdated(item) {
-  const date = new Date(item.lastUpdatedTimestamp * 1000);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  item.lastUpdated = `${year}-${month}-${day}`;
-  return item;
-}
-
 function updatedThings(collectionApi) {
   const recentlyUpdated = collectionApi
     .getAll()
     .filter(hasUpdates)
-    .map(setLastUpdatedTimestamp)
-    .map(setLastUpdated);
+    .map(setLastUpdatedTimestamp);
   recentlyUpdated.sort(
     (a, b) => b.lastUpdatedTimestamp - a.lastUpdatedTimestamp
   );
   return recentlyUpdated;
+}
+
+// filters
+
+function toLastUpdated(revisions) {
+  if (!Array.isArray(revisions)) {
+    return '';
+  }
+  const timestamps = revisions.map((r) => r.timestamp);
+  // sort descending
+  timestamps.sort((a, b) => b - a);
+  return unixTimestampToDateStr(timestamps[0]);
 }
 
 // see https://www.11ty.dev/docs/config/
@@ -45,6 +56,9 @@ module.exports = function (eleventyConfig) {
 
   // collections to display on the home page
   eleventyConfig.addCollection('updated', updatedThings);
+
+  // custom filters for templates
+  eleventyConfig.addFilter('toLastUpdated', toLastUpdated);
 
   // markdown config
   eleventyConfig.setLibrary(
