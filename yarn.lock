@@ -680,6 +680,7 @@ __metadata:
     eslint: latest
     eslint-config-prettier: ^8.6.0
     markdown-it: ^13.0.1
+    markdown-it-footnote: ^3.0.3
     markdown-it-mark: ^3.0.1
     prettier: 2.8.4
   languageName: unknown
@@ -2603,6 +2604,13 @@ __metadata:
     socks-proxy-agent: ^7.0.0
     ssri: ^9.0.0
   checksum: 2332eb9a8ec96f1ffeeea56ccefabcb4193693597b132cd110734d50f2928842e22b84cfa1508e921b8385cdfd06dda9ad68645fed62b50fff629a580f5fb72c
+  languageName: node
+  linkType: hard
+
+"markdown-it-footnote@npm:^3.0.3":
+  version: 3.0.3
+  resolution: "markdown-it-footnote@npm:3.0.3"
+  checksum: 3657f943f938603ec74e86a41883bfac5564eec7733b8d74e00894cb2b2b73f823c072bccd8aa07c418ae1e017a4f5d22c6309627dfc2800100fcb2c6c71e24b
   languageName: node
   linkType: hard
 

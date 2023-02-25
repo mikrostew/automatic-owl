@@ -1,4 +1,5 @@
 const markdownIt = require('markdown-it');
+const markdownItFootnote = require('markdown-it-footnote');
 const markdownItMark = require('markdown-it-mark');
 
 // TODO: this is not quite right, because timezones, but close enough for now
@@ -59,10 +60,30 @@ module.exports = function (eleventyConfig) {
   // custom filters for templates
   eleventyConfig.addFilter('toLastUpdated', toLastUpdated);
 
+  let options = {
+    // enable HTML tags in source
+    html: true,
+
+    // auto-convert URL-like text to link
+    linkify: true,
+
+    // enables some nice replacements, and smart quotes
+    // (see https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js)
+    // (c) (C) → ©
+    // (tm) (TM) → ™
+    // (r) (R) → ®
+    // +- → ±
+    // (p) (P) -> §
+    // ... → … (also ?.... → ?.., !.... → !..)
+    // ???????? → ???, !!!!! → !!!, `,,` → `,`
+    // -- → &ndash;, --- → &mdash;
+    typographer: true,
+  };
+
   // markdown config
   eleventyConfig.setLibrary(
     'md',
-    markdownIt({ html: true }).use(markdownItMark)
+    markdownIt(options).use(markdownItMark).use(markdownItFootnote)
   );
 
   // other config that doesn't use the API

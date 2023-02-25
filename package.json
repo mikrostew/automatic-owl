@@ -23,6 +23,7 @@
     "eslint": "latest",
     "eslint-config-prettier": "^8.6.0",
     "markdown-it": "^13.0.1",
+    "markdown-it-footnote": "^3.0.3",
     "markdown-it-mark": "^3.0.1",
     "prettier": "2.8.4"
   }
