@@ -20,6 +20,8 @@ This site is built with [eleventy](https://github.com/11ty/eleventy), which I li
 
 I host this with [Netlify](https://www.netlify.com), which has been easy to setup and use.
 
+Code for this site is [on GitHub](https://github.com/mikrostew/automatic-owl/).
+
 Previously, I was using [Jekyll](https://jekyllrb.com/), but it only supports liquid templates (which are [not great](https://aioo.be/2018/06/17/Why-I-hate-Shopifys-Liquid-Template-Language.html), and the main reason I stopped liking Jekyll).
 
 
