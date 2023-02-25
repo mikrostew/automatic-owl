@@ -12,7 +12,7 @@ layout: base-page
 <h2>Recently Updated</h2>
 
 {% for item in collections.updated %}
-  <p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.revisions | toLastUpdated }})</p>
+  <p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.lastUpdated | timestampToDateStr }})</p>
 {% endfor %}
 
 </section>

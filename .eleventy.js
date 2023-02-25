@@ -2,48 +2,26 @@ const markdownIt = require('markdown-it');
 const markdownItFootnote = require('markdown-it-footnote');
 const markdownItMark = require('markdown-it-mark');
 
-// TODO: this is not quite right, because timezones, but close enough for now
-function unixTimestampToDateStr(timestamp) {
-  const date = new Date(timestamp * 1000);
-  const year = date.getFullYear();
-  const month = String(date.getMonth() + 1).padStart(2, '0');
-  const day = String(date.getDate()).padStart(2, '0');
-  return `${year}-${month}-${day}`;
-}
-
 function hasUpdates(item) {
-  return item.data?.revisions?.length > 0;
-}
-
-function setLastUpdatedTimestamp(item) {
-  const timestamps = item.data.revisions.map((r) => r.timestamp);
-  // sort descending
-  timestamps.sort((a, b) => b - a);
-  item.lastUpdatedTimestamp = timestamps[0];
-  return item;
+  return item.data?.lastUpdated !== undefined;
 }
 
 function updatedThings(collectionApi) {
-  const recentlyUpdated = collectionApi
-    .getAll()
-    .filter(hasUpdates)
-    .map(setLastUpdatedTimestamp);
-  recentlyUpdated.sort(
-    (a, b) => b.lastUpdatedTimestamp - a.lastUpdatedTimestamp
-  );
+  const recentlyUpdated = collectionApi.getAll().filter(hasUpdates);
+  // sort descending
+  recentlyUpdated.sort((a, b) => b.data.lastUpdated - a.data.lastUpdated);
   return recentlyUpdated;
 }
 
 // filters
 
-function toLastUpdated(revisions) {
-  if (!Array.isArray(revisions)) {
-    return '';
-  }
-  const timestamps = revisions.map((r) => r.timestamp);
-  // sort descending
-  timestamps.sort((a, b) => b - a);
-  return unixTimestampToDateStr(timestamps[0]);
+// TODO: this is not quite right, because timezones, but close enough for now
+function timestampToDateStr(timestamp) {
+  const date = new Date(timestamp * 1000);
+  const year = date.getFullYear();
+  const month = String(date.getMonth() + 1).padStart(2, '0');
+  const day = String(date.getDate()).padStart(2, '0');
+  return `${year}-${month}-${day}`;
 }
 
 // see https://www.11ty.dev/docs/config/
@@ -58,7 +36,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addCollection('updated', updatedThings);
 
   // custom filters for templates
-  eleventyConfig.addFilter('toLastUpdated', toLastUpdated);
+  eleventyConfig.addFilter('timestampToDateStr', timestampToDateStr);
 
   let options = {
     // enable HTML tags in source

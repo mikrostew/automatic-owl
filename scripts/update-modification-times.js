@@ -114,6 +114,11 @@ async function updateFileRevisions(fileRevisions) {
         dataFileContents.revisions.push(revisionInfo);
       }
     }
+    // update lastUpdated
+    const timestamps = dataFileContents.revisions.map((r) => r.timestamp);
+    const lastUpdated = Math.max(...timestamps);
+    dataFileContents.lastUpdated = lastUpdated;
+
     await writeFile(dataFile, JSON.stringify(dataFileContents, null, 2), {
       encoding: 'utf8',
     });
@@ -138,5 +143,7 @@ await updateFileRevisions(fileRevisions);
 //     },
 //     ...
 //   ],
+//   // so I don't waste time re-calculating this every build
+//   lastUpdated: 1638389705,
 //   ...
 // }
