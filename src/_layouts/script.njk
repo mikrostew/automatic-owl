@@ -2,6 +2,7 @@
 #### Things that should be overridden by the page
 title: Automatic Owl
 description: TODO
+scriptName: TODO
 
 ---
 <!DOCTYPE html>
@@ -26,12 +27,9 @@ description: TODO
     <meta property="og:description" content="{{ description }}" />
     <meta property="og:site_name" content="Automatic Owl" />
 
-    <!-- for IndieAuth -->
-    <!-- TODO: this only needs to be on the index page -->
-    <link rel="pgpkey" href="/automaticowl.pub">
-
     <!-- TODO -->
     <!-- <link rel="stylesheet" type="text/css" href="/automaticowl.css" /> -->
+    <script type="text/javascript" src="/js/{{ scriptName }}" defer></script>
   </head>
   <body>
     <article class="main">
@@ -40,8 +38,9 @@ description: TODO
       </header>
       <h1>{{ title }}</h1>
       <p>{{ description }}</p>
-      <p>(<a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ page.inputPath }}" title="See the history of this page on GitHub">{{ revisions.length }} revision{% if revisions.length > 1 %}s{% endif %}</a>, last updated {{ lastUpdated | timestampToDateStr }})</p>
+      <p>(<a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ page.inputPath }}" title="See the history of this page on GitHub">{{ revisions.length }} revision{% if revisions.length > 1 %}s{% endif %}</a>, last updated {{ lastUpdated | timestampToDateStr }}, <a href="https://github.com/mikrostew/automatic-owl/commits/main/js/{{ scriptName }}">src script</a>)</p>
 {{ content | safe }}
+      <!-- TODO: some text about JS being blocked, that is overwritten by some other script that is included -->
       <footer>
         <!-- TODO -->
       </footer>

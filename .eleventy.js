@@ -29,8 +29,9 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/favicon.ico');
   eleventyConfig.addPassthroughCopy('src/automaticowl.pub');
   // folders to copy
-  eleventyConfig.addPassthroughCopy('img');
   eleventyConfig.addPassthroughCopy('fonts');
+  eleventyConfig.addPassthroughCopy('img');
+  eleventyConfig.addPassthroughCopy('js');
 
   // collections to display on the home page
   eleventyConfig.addCollection('updated', updatedThings);
