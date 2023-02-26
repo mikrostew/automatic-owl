@@ -39,8 +39,13 @@ scriptName: TODO
       <h1>{{ title }}</h1>
       <p>{{ description }}</p>
       <p>(<a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ page.inputPath }}" title="See the history of this page on GitHub">{{ revisions.length }} revision{% if revisions.length > 1 %}s{% endif %}</a>, last updated {{ lastUpdated | timestampToDateStr }}, <a href="https://github.com/mikrostew/automatic-owl/commits/main/js/{{ scriptName }}">src script</a>)</p>
+      <noscript>
+        <style type="text/css">.script-container { display:none; }</style>
+        <p class="error">This page doesn't work if JavaScript is disabled! Please enable JavaScript.</p>
+      </noscript>
+      <section class="script-container">
 {{ content | safe }}
-      <!-- TODO: some text about JS being blocked, that is overwritten by some other script that is included -->
+      </section>
       <footer>
         <!-- TODO -->
       </footer>
