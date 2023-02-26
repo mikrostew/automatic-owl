@@ -21,4 +21,6 @@ function updateLoadTime() {
   });
 }
 
+// set it initially, then update every second
 updateLoadTime();
+setInterval(updateLoadTime, 1000);
