@@ -4,6 +4,28 @@ html {
   max-width: 70ch;
   padding: 3em 1em;
   margin: auto;
-  line-height: 1.75;
+  line-height: 1.5;
   font-size: 1.25em;
+}
+
+.grid-two-column {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2em;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.half-width {
+  width: 50%;
+}
+
+.third-width {
+  width: 33%;
+}
+
+.text-center {
+  text-align: center;
 }
