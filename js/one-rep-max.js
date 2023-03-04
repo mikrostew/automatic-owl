@@ -88,6 +88,7 @@ function getWeight() {
   } else if (weightNum <= 0) {
     weightError('Please enter a number greater than 0 for weight');
   } else {
+    hideWeighError();
     return weightNum;
   }
 }
@@ -100,6 +101,7 @@ function getReps() {
   } else if (repsNum <= 0) {
     repsError('Please enter a number greater than 0 for reps');
   } else {
+    hideRepsError();
     return repsNum;
   }
 }
@@ -125,13 +127,25 @@ function calcOneRepMax() {
 }
 
 function weightError(message) {
-  // TODO: show an error instead of logging to console
-  console.error(message);
+  const errorElem = document.getElementById('weight-error');
+  errorElem.textContent = message;
+  errorElem.classList.remove('hidden');
 }
 
-function repsError(reps) {
-  // TODO: show an error instead of logging to console
-  console.error(reps);
+function hideWeighError() {
+  const errorElem = document.getElementById('weight-error');
+  errorElem.classList.add('hidden');
+}
+
+function repsError(message) {
+  const errorElem = document.getElementById('reps-error');
+  errorElem.textContent = message;
+  errorElem.classList.remove('hidden');
+}
+
+function hideRepsError() {
+  const errorElem = document.getElementById('reps-error');
+  errorElem.classList.add('hidden');
 }
 
 function setOneRepMax(weight) {
