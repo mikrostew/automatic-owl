@@ -1,6 +1,6 @@
 ---
 title: One Rep Max Calculator
-description: Estimate your one repetition max (1RM), the maximum weight you can lift one time, for an exercise.
+description: Estimate your one repetition max (1RM), and derive percentages and reps from that.
 layout: script
 scriptName: one-rep-max.js
 
@@ -72,9 +72,53 @@ Your estimated one rep max is: **<span id="one-rep-max"></span>**
 
 </div>
 
-Equation to use:
+You can also select an equation to use (these are the two most popular[^wiki]):
+
 <input type="radio" id="brzycki" name="equation" value="brzycki" checked><label for="brzycki">Brzycki</label>
 <input type="radio" id="epley" name="equation" value="epley"><label for="epley">Epley</label>
 
-==TODO: some desription down here, blah blah...==
+## Why use this?
 
+Many strength training programs are setup so that the weights used are either:
+* some percentage of your 1 rep max (1RM)
+* in a specified rep range
+
+To calculate a percentage of your 1RM, you need to know what it is. Actually performing a 1 rep max lift is fatiguing and prone to injury[^nfpt] (and if you're not a competitive powerlifter/strongman/weightlifter, you don't have to).
+
+It's easier to use an equation to estimate your 1RM, based on your submaximal lifts. There are number of equations for this[^wiki-equations], and I chose the two most popular: Brzycki and Epley. I did a little internet research, and found that while these equations have limitations[^study1][^study2][^study3][^study4], they are accurate enough to be useful.
+
+## Brzycki
+
+Unlike some of the studies I referenced above, I have no idea what data was used to come up with this equation. The commonly cited reference for this[^brzycki-cite] is a physical book, which [seems to exist](https://www.book-info.com/isbn/1-57028-018-5.mobi.htm), but I haven't bought it.
+
+==TODO: the equation, in mathjax: 1RM = w * 36 / (37 - r)==
+
+## Epley
+
+I also don't know what data was used to formulate this equation. The commonly cited reference for this[^epley-cite] seems to be out of print?
+
+==TODO: the equation, in mathjax: 1RM = w * (1 + r/30)==
+
+
+Anyway, there you go. Hope this calculator is useful.
+
+
+[^wiki]: According to Wikipedia: <https://en.wikipedia.org/wiki/One-repetition_maximum>
+
+[^nfpt]: From <https://www.nfpt.com/blog/calculating-a-clients-1rm>:
+
+    > Attempting a 1RM requires a great deal of focus and mental preparation on the part of the lifter. A maximal exertion for a single repetition consumes a surplus of training time as well as drains an excessive amount of the trainee’s recuperative resources. Simply put, the time and energy spent in performing a 1RM detracts from the flow of the overall training regimen; moreover, any performance of exertions with maximal workloads may lead to significant stress imposed on muscle tissues, bone and ligaments, which in turn can trigger metabolic alterations. In light of this, many practitioners and coaches view the 1RM as dangerous and impractical in most exercise settings.
+
+[^wiki-equations]: Wikipedia currently lists 12: <https://en.wikipedia.org/wiki/One-repetition_maximum#Calculating_1RM>
+
+[^study1]: [This](https://journals.lww.com/nsca-jscr/abstract/1999/08000/validity_of_1rm_prediction_equations_for_older.11.aspx) was a study of older individuals (average age ~70yrs). It found that the 6 most popular equations underestimated the 1RM of the participants (by up to 10kg) on machine exercises, but were still useful for programming.
+
+[^study2]: [This study](https://www.ncbi.nlm.nih.gov/pmc/articles/PMC4042664/) found that the relationship between 1RM and other rep ranges can vary based on athletic background (weight lifting vs running), and these equations were not as accurate for runners.
+
+[^study3]: [This study](https://www.unm.edu/~rrobergs/478RMStrengthPrediction.pdf) found different strength curves between men and women, and between different exerises, but concluded that the popular equations are still close enough to be useful.
+
+[^study4]: [This study](https://opensiuc.lib.siu.edu/cgi/viewcontent.cgi%3Farticle%3D1744%26context%3Dgs_rp), which used these equations to estimate the 1RM back squat of college football players, found that Epley was closer when using 3RM, and Brzycki was closer at 5RM.
+
+[^brzycki-cite]: Brzycki, Matt (1998). A Practical Approach To Strength Training. McGraw-Hill. ISBN 978-1-57028-018-4.
+
+[^epley-cite]: Epley, Boyd (1985). "Poundage Chart". Boyd Epley Workout. Lincoln, NE: Body Enterprises. p. 86.
