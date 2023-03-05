@@ -13,17 +13,18 @@ function brzyckiReps(oneRepMax, reps) {
   return oneRepMax / (36.0 / (37.0 - reps));
 }
 
-// TODO: Epley
-//  1RM = w * (1 + r/30)
-// function epley1RM(weight, reps) {
-//   return weight * (1.0 + reps / 30.0);
-// }
+// Epley
 //
+//  1RM = w * (1 + r/30)
+function epley1RM(weight, reps) {
+  return weight * (1.0 + reps / 30.0);
+}
+
 // for calculating reps based on 1RM
 //  w = 1RM / (1 + r/30)
-// function epleyReps(oneRepMax, reps) {
-//   return oneRepMax / (1.0 + reps / 30.0);
-// }
+function epleyReps(oneRepMax, reps) {
+  return oneRepMax / (1.0 + reps / 30.0);
+}
 
 const KG_PER_LB = 2.20462262185;
 
@@ -57,9 +58,10 @@ function conversionFactor(fromUnit, toUnit) {
 }
 
 class Weight {
-  constructor(weight, unit) {
+  constructor(weight, unit, repEquation) {
     this.weight = weight;
     this.unit = unit;
+    this.repEquation = repEquation;
   }
 
   formatOneRepMax() {
@@ -73,8 +75,7 @@ class Weight {
   }
 
   formatRep(repNumber, targetUnit) {
-    // TODO: for now, just do Brzycki
-    const weight = brzyckiReps(this.weight, repNumber);
+    const weight = this.repEquation(this.weight, repNumber);
     const converted = weight * conversionFactor(this.unit, targetUnit);
     return `${converted.toFixed(1)} ${unitToStr(targetUnit)}`;
   }
@@ -115,14 +116,23 @@ function getUnit() {
   }
 }
 
+function getEquations() {
+  if (document.getElementById('brzycki').checked) {
+    return [brzycki1RM, brzyckiReps];
+  } else {
+    // assuming one of these must be checked
+    return [epley1RM, epleyReps];
+  }
+}
+
 function calcOneRepMax() {
   const weight = getWeight();
   const reps = getReps();
   const unit = getUnit();
+  const [oneRepMaxEquation, repEquation] = getEquations();
   if (weight !== undefined && reps !== undefined) {
-    // TODO: for now, use Brzycki
-    const oneRepMax = brzycki1RM(weight, reps);
-    return new Weight(oneRepMax, unit);
+    const oneRepMax = oneRepMaxEquation(weight, reps);
+    return new Weight(oneRepMax, unit, repEquation);
   }
 }
 
@@ -209,6 +219,11 @@ const lbsRadio = document.getElementById('radio-lb');
 lbsRadio.addEventListener('change', inputChanged);
 const kgsRadio = document.getElementById('radio-kg');
 kgsRadio.addEventListener('change', inputChanged);
+
+const brzyckiRadio = document.getElementById('brzycki');
+brzyckiRadio.addEventListener('change', inputChanged);
+const epleyRadio = document.getElementById('epley');
+epleyRadio.addEventListener('change', inputChanged);
 
 // call this to initialize everything
 inputChanged();

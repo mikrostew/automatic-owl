@@ -8,11 +8,17 @@ scriptName: one-rep-max.js
 
 Calculate your one rep max, based on a sub-maximal lift:
 
-Weight: <input type="number" id="weight-input" name="foo" min="1" max="1500" value="125"> <input type="radio" id="radio-lb" name="units" value="radio-lb" checked><label for="radio-lb">lbs</label> <input type="radio" id="radio-kg" name="units" value="radio-kg"><label for="radio-kg">kgs</label> <span id="weight-error" class="error hidden"></span>
+Weight:
+<input type="number" id="weight-input" name="weight" min="1" max="1500" value="125" size="6">
+<input type="radio" id="radio-lb" name="units" value="radio-lb" checked><label for="radio-lb">lbs</label>
+<input type="radio" id="radio-kg" name="units" value="radio-kg"><label for="radio-kg">kgs</label>
+<span id="weight-error" class="error hidden"></span>
 
-Reps: <input type="number" id="reps-input" name="bar" min="1" max="50" value="8"> <span id="reps-error" class="error hidden"></span>
+Reps:
+<input type="number" id="reps-input" name="reps" min="1" max="50" value="8" size="3">
+<span id="reps-error" class="error hidden"></span>
 
-Your estimated one rep max is **<span id="one-rep-max"></span>**.
+Your estimated one rep max is: **<span id="one-rep-max"></span>**
 
 <div class="grid-two-column">
 
@@ -66,6 +72,9 @@ Your estimated one rep max is **<span id="one-rep-max"></span>**.
 
 </div>
 
+Equation to use:
+<input type="radio" id="brzycki" name="equation" value="brzycki" checked><label for="brzycki">Brzycki</label>
+<input type="radio" id="epley" name="equation" value="epley"><label for="epley">Epley</label>
+
 ==TODO: some desription down here, blah blah...==
 
-==TODO: also, maybe allow selecting different forumlas??==
