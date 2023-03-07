@@ -41,6 +41,11 @@ function unitToStr(unit) {
   }
 }
 
+function formatWeight(weight, unit) {
+  // &nbsp; is char 160
+  return `${weight.toFixed(1)}\xa0${unitToStr(unit)}`;
+}
+
 function conversionFactor(fromUnit, toUnit) {
   if (fromUnit === WeightUnits.LB) {
     if (toUnit === WeightUnits.LB) {
@@ -65,19 +70,19 @@ class Weight {
   }
 
   formatOneRepMax() {
-    return `${this.weight.toFixed(1)} ${unitToStr(this.unit)}`;
+    return formatWeight(this.weight, this.unit);
   }
 
   formatPercentage(percentage, targetUnit) {
     const weight = this.weight * percentage;
     const converted = weight * conversionFactor(this.unit, targetUnit);
-    return `${converted.toFixed(1)} ${unitToStr(targetUnit)}`;
+    return formatWeight(converted, targetUnit);
   }
 
   formatRep(repNumber, targetUnit) {
     const weight = this.repEquation(this.weight, repNumber);
     const converted = weight * conversionFactor(this.unit, targetUnit);
-    return `${converted.toFixed(1)} ${unitToStr(targetUnit)}`;
+    return formatWeight(converted, targetUnit);
   }
 }
 

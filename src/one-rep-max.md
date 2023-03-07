@@ -20,7 +20,7 @@ Reps:
 
 Your estimated one rep max is: **<span id="one-rep-max"></span>**
 
-<div class="grid-two-column">
+<div class="two-column-reflow">
 
 <div>
 <h3 class="text-center">Percentages of 1RM</h3>

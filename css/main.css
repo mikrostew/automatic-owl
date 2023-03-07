@@ -8,9 +8,10 @@ html {
   font-size: 1.25em;
 }
 
-.grid-two-column {
+.two-column-reflow {
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  /* auto-fill as space is available */
+  grid-template-columns: repeat(auto-fill, minmax(30ch, 1fr));
   gap: 2em;
 }
 
@@ -36,4 +37,13 @@ html {
 
 .error {
   color: red;
+}
+
+table {
+  border-spacing: 0;
+}
+
+table thead th {
+  border: 1px solid black;
+  border-width: 0 0 2px;
 }
