@@ -1,6 +1,7 @@
 const markdownIt = require('markdown-it');
 const markdownItFootnote = require('markdown-it-footnote');
 const markdownItMark = require('markdown-it-mark');
+const markdownItMathjax3 = require('markdown-it-mathjax3');
 
 function hasUpdates(item) {
   return item.data?.lastUpdated !== undefined;
@@ -63,7 +64,10 @@ module.exports = function (eleventyConfig) {
   // markdown config
   eleventyConfig.setLibrary(
     'md',
-    markdownIt(options).use(markdownItMark).use(markdownItFootnote)
+    markdownIt(options)
+      .use(markdownItMark)
+      .use(markdownItFootnote)
+      .use(markdownItMathjax3)
   );
 
   // other config that doesn't use the API

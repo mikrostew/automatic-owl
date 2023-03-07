@@ -91,13 +91,14 @@ It's easier to use an equation to estimate your 1RM, based on your submaximal li
 
 Unlike some of the studies I referenced above, I have no idea what data was used to come up with this equation. The commonly cited reference for this[^brzycki-cite] is a physical book, which [seems to exist](https://www.book-info.com/isbn/1-57028-018-5.mobi.htm), but I haven't bought it.
 
-==TODO: the equation, in mathjax: 1RM = w * 36 / (37 - r)==
+$$1\text{RM} = w \cdot \frac{36}{37 - r}$$
+
 
 ## Epley
 
 I also don't know what data was used to formulate this equation. The commonly cited reference for this[^epley-cite] seems to be out of print?
 
-==TODO: the equation, in mathjax: 1RM = w * (1 + r/30)==
+$$1\text{RM} = w \left( 1 + \frac{r}{30} \right)$$
 
 
 Anyway, there you go. Hope this calculator is useful.
