@@ -62,13 +62,19 @@ module.exports = function (eleventyConfig) {
   };
 
   // markdown config
-  eleventyConfig.setLibrary(
-    'md',
-    markdownIt(options)
-      .use(markdownItMark)
-      .use(markdownItFootnote)
-      .use(markdownItMathjax3)
-  );
+  const md = markdownIt(options)
+    .use(markdownItMark)
+    .use(markdownItFootnote)
+    .use(markdownItMathjax3);
+  eleventyConfig.setLibrary('md', md);
+
+  // add a "Notes" header to the footnotes
+  // (adapted from https://github.com/markdown-it/markdown-it-footnote#customize)
+  md.renderer.rules.footnote_block_open = () =>
+    '<hr class="footnotes-sep">\n' +
+    '<h4>Notes</h4>\n' +
+    '<section class="footnotes">\n' +
+    '<ol class="footnotes-list">\n';
 
   // other config that doesn't use the API
   return {
