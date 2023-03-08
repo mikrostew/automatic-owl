@@ -1,8 +1,8 @@
 /* basic, readable style */
-/* from https://dev.to/swyx/100-bytes-of-css-to-look-great-everywhere-19pd */
+/* (adapted from https://dev.to/swyx/100-bytes-of-css-to-look-great-everywhere-19pd) */
 html {
   max-width: 70ch;
-  padding: 3em 1em;
+  padding: 2em 0.5em;
   margin: auto;
   line-height: 1.5;
   font-size: 1.25em;
