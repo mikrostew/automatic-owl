@@ -47,3 +47,16 @@ table thead th {
   border: 1px solid black;
   border-width: 0 0 2px;
 }
+
+/* animating paths for plants */
+/* https://css-tricks.com/svg-line-animation-works/ */
+/* 3 seconds feels like a good amount of time for this */
+.stem-grow {
+  animation: dash 3s linear forwards;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
