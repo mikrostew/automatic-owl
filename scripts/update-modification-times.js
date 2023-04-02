@@ -129,6 +129,7 @@ async function updateFileRevisions(fileRevisions) {
 const commitInfos = await getPrevCommitInfo(20);
 const fileRevisions = await getFileRevisions(commitInfos);
 
+console.log('Updating file modification info...');
 await updateFileRevisions(fileRevisions);
 
 // this is what the json for this stuff will look like

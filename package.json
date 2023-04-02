@@ -11,7 +11,8 @@
   },
   "scripts": {
     "build": "rm -rf _site/; eleventy",
-    "serve": "eleventy --serve"
+    "serve": "eleventy --serve",
+    "rev-check": "node scripts/update-modification-times.js && scripts/check-for-modifications.sh"
   },
   "prettier": {
     "singleQuote": true
