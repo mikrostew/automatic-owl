@@ -9,6 +9,7 @@
     "node": "18.14.0",
     "yarn": "3.4.1"
   },
+  "packageManager": "yarn@3.4.1",
   "scripts": {
     "build": "rm -rf _site/; eleventy",
     "serve": "eleventy --serve",
