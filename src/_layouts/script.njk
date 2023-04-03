@@ -5,6 +5,9 @@ description: TODO
 scriptName: TODO
 
 ---
+
+{% import "layout-macros.njk" as layout %}
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -32,9 +35,7 @@ scriptName: TODO
   </head>
   <body>
     <article class="main">
-      <header>
-        <a href="/">automatic owl</a>
-      </header>
+{{ layout.header() }}
       <h1>{{ title }}</h1>
       <p>{{ description }}</p>
       <p>(<a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ page.inputPath }}" title="See the history of this page on GitHub">{{ revisions.length }} revision{% if revisions.length > 1 %}s{% endif %}</a>, last updated {{ lastUpdated | timestampToDateStr }} &mdash; <a href="https://github.com/mikrostew/automatic-owl/blob/main/js/{{ scriptName }}">src script</a>)</p>
@@ -45,9 +46,7 @@ scriptName: TODO
       <section class="script-container">
 {{ content | safe }}
       </section>
-      <footer>
-        <!-- TODO -->
-      </footer>
+{{ layout.footer(page.inputPath) }}
     </article>
   </body>
 </html>
