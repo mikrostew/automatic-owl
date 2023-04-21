@@ -39,6 +39,11 @@ html {
   color: red;
 }
 
+/* so that images don't overflow their parent <p> container */
+img {
+  max-width: 100%;
+}
+
 table {
   border-spacing: 0;
 }
