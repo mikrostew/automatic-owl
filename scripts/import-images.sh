@@ -41,6 +41,15 @@ do
   output_file_path="img/$base_filename-$image_num.$file_ext"
   output_thumb_path="img/$base_filename-$image_num-tn.$file_ext"
 
+  # if I don't set the alt text & title initially, I will forget to do it
+  echo -n "What alt text / title for this image? "
+  read -r alt_text
+  if [ -z "$alt_text" ]
+  then
+    echo "no alt text / title entered"
+    exit 1
+  fi
+
   while [ -f "$output_file_path" ]
   do
     (( image_num += 1 ))
@@ -59,13 +68,13 @@ do
     cp "$image" "$output_file_path"
     echo "output: $output_file_path"
 
-    out_md+=( "[![alt text](/$output_thumb_path)](/$output_file_path)" )
+    out_md+=( "[![$alt_text](/$output_thumb_path)](/$output_file_path \"$alt_text\")" )
   else
     # copy the orig file to /img
     cp "$image" "$output_file_path"
     echo "output: $output_file_path"
 
-    out_md+=( "[![alt text](/$output_file_path)](/$output_file_path)" )
+    out_md+=( "[![$alt_text](/$output_file_path)](/$output_file_path \"$alt_text\")" )
   fi
 done
 
@@ -75,6 +84,6 @@ echo ""
 echo "Markdown to use:"
 echo "$md"
 
-echo "$md" | pbcopy
+echo -n "$md" | pbcopy
 echo ""
 echo "(it has also been copied to the clipboard)"
