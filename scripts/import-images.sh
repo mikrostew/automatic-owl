@@ -6,7 +6,10 @@
 usage() {
   echo ""
   echo "Usage:"
-  echo "  scripts/import-images.sh <path/to/image1> [, <path/to/image2>, ...]"
+  echo "  scripts/import-images.sh [options] <path/to/image1> [, <path/to/image2>, ...]"
+  echo ""
+  echo "Options:"
+  echo "  --base,-b     base filename to use, for naming the images"
   echo ""
   echo "This does 3 main things:"
   echo "  - creates a thumbnail image of max-width 640px in the /img dir"
@@ -16,15 +19,26 @@ usage() {
   echo "Input images will be numbered sequentially, using the input base filename"
 }
 
+# check for basename option
+if [ "$1" == "-b" ] || [ "$1" == "--base" ]
+then
+  shift
+  base_filename="$1"
+  shift
+fi
+
 if [ "$#" -gt 0 ]
 then
-  # prompt for base filename (and all the files will use that base name)
-  echo -n "What base filename to use? "
-  read -r base_filename
   if [ -z "$base_filename" ]
   then
-    echo "no filename entered"
-    exit 1
+    # prompt for base filename (and all the files will use that base name)
+    echo -n "What base filename to use? "
+    read -r base_filename
+    if [ -z "$base_filename" ]
+    then
+      echo "no filename entered"
+      exit 1
+    fi
   fi
 fi
 
