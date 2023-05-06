@@ -1,9 +1,37 @@
 ---
 title: My Blogspot Blog Stuff
-description: Old posts about hiking and stuff, from back when I used blogspot, all together on this single page.
+description: Old posts from when I hiked the Appalachian Trail, and took a road trip to the West Coast.
 layout: base-page
 
 ---
+
+### Done With The AT For This Year
+
+_6/4/2011_
+
+My knee is not going to be fully healed for a while, so I'm done with the trail this year. I'm back in Maryland, and I have plenty of food left to eat:
+
+[![lots of food in boxes](/img/blogspot-stuff-26-tn.JPG)](/img/blogspot-stuff-26.JPG "lots of food in boxes")
+
+
+### Random Stuff While I'm Healing
+
+_5/13/2011_
+
+I'm hanging out in GA with my parents for a while so that my knee can heal. I still have the stitches in, but they will be out on Sunday. The cut is healing well, but inside the knee is really tight. I can only bend it about 45 degrees right now, and can't put much weight on it when bent.
+
+So in the meantime I pulled some pictures and videos off my camera, and here they are.
+
+The crew that rescued me off the mountain:
+
+[![rescued in a stretcher](/img/blogspot-stuff-24-tn.jpg)](/img/blogspot-stuff-24.jpg "rescued in a stretcher")
+
+The women's retreat at the Siler Bald shelter as they were figuring out how to put up their tents:
+
+[![my tent is all the way to the right](/img/blogspot-stuff-25-tn.jpg)](/img/blogspot-stuff-25.jpg "my tent is all the way to the right")
+
+That's about it for now. Hopefully my knee will continue to heal and I'll be back on the trail where I left off soon.
+
 
 ### I'm Dumb
 
