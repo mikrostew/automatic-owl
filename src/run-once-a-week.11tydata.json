@@ -1,0 +1,140 @@
+{
+  "activities": {
+    "5/4/2023": {
+      "date": "5/4/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/9009097861",
+      "time": "46:31",
+      "distance": "4.50 mi",
+      "elevation": "201 ft"
+    },
+    "4/28/2023": {
+      "date": "4/28/2023",
+      "kind": "Hike",
+      "link": "https://www.strava.com/activities/8973850221",
+      "time": "4:13:38",
+      "distance": "12.90 mi",
+      "elevation": "2,226 ft"
+    },
+    "4/20/2023": {
+      "date": "4/20/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8924853509",
+      "time": "40:25",
+      "distance": "3.87 mi",
+      "elevation": "170 ft"
+    },
+    "4/15/2023": {
+      "date": "4/15/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8896909988",
+      "time": "1:05:33",
+      "distance": "5.60 mi",
+      "elevation": "237 ft"
+    },
+    "4/4/2023": {
+      "date": "4/4/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8830731808",
+      "time": "54:07",
+      "distance": "4.70 mi",
+      "elevation": "198 ft"
+    },
+    "3/29/2023": {
+      "date": "3/29/2023",
+      "kind": "Hike",
+      "link": "https://www.strava.com/activities/8798603269",
+      "time": "2:01:32",
+      "distance": "7.25 mi",
+      "elevation": "1,385 ft"
+    },
+    "3/22/2023": {
+      "date": "3/22/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8758068789",
+      "time": "18:31",
+      "distance": "1.84 mi",
+      "elevation": "93 ft"
+    },
+    "3/14/2023": {
+      "date": "3/14/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8712792168",
+      "time": "35:38",
+      "distance": "3.29 mi",
+      "elevation": "145 ft"
+    },
+    "2/28/2023": {
+      "date": "2/28/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8636385585",
+      "time": "55:32",
+      "distance": "5.15 mi",
+      "elevation": "214 ft"
+    },
+    "2/24/2023": {
+      "date": "2/24/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8614679671",
+      "time": "44:52",
+      "distance": "4.37 mi",
+      "elevation": "201 ft"
+    },
+    "2/15/2023": {
+      "date": "2/15/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8565466842",
+      "time": "18:05",
+      "distance": "2.01 mi",
+      "elevation": "93 ft"
+    },
+    "2/10/2023": {
+      "date": "2/10/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8537571954",
+      "time": "56:00",
+      "distance": "5.43 mi",
+      "elevation": "235 ft"
+    },
+    "1/31/2023": {
+      "date": "1/31/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8484369344",
+      "time": "48:43",
+      "distance": "4.65 mi",
+      "elevation": "200 ft"
+    },
+    "1/24/2023": {
+      "date": "1/24/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8444095859",
+      "time": "19:23",
+      "distance": "2.03 mi",
+      "elevation": "98 ft"
+    },
+    "1/16/2023": {
+      "date": "1/16/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8401165003",
+      "time": "46:06",
+      "distance": "4.54 mi",
+      "elevation": "198 ft"
+    },
+    "1/11/2023": {
+      "date": "1/11/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8374715478",
+      "time": "38:45",
+      "distance": "3.78 mi",
+      "elevation": "142 ft"
+    },
+    "1/4/2023": {
+      "date": "1/4/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/8336791733",
+      "time": "39:50",
+      "distance": "3.78 mi",
+      "elevation": "180 ft"
+    }
+  }
+}
