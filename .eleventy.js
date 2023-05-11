@@ -25,6 +25,29 @@ function timestampToDateStr(timestamp) {
   return `${year}-${month}-${day}`;
 }
 
+// TODO: just figuring out how templating works...
+// (eventually this could take in some kind of callback to render specific days, somehow?)
+function calendarForMonth(year, month) {
+  const monthIndex = month - 1;
+  const dayInMonth = new Date(year, monthIndex, 1);
+  // the spaces this needs at the start == the index of the day of the week
+  const numStartSpaces = dayInMonth.getDay();
+  const data = Array(numStartSpaces).fill('');
+  // fill in the days of the month
+  // (this is where the callback would hook in)
+  while (dayInMonth.getMonth() === monthIndex) {
+    data.push(dayInMonth.getDate());
+    dayInMonth.setDate(dayInMonth.getDate() + 1);
+  }
+  // split up into weeks (last week may be shorter, it's fine)
+  const weekData = [];
+  for (let i = 0; i < data.length; i += 7) {
+    weekData.push(data.slice(i, i + 7));
+  }
+
+  return weekData;
+}
+
 // see https://www.11ty.dev/docs/config/
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/favicon.ico');
@@ -40,6 +63,7 @@ module.exports = function (eleventyConfig) {
 
   // custom filters for templates
   eleventyConfig.addFilter('timestampToDateStr', timestampToDateStr);
+  eleventyConfig.addFilter('calendarForMonth', calendarForMonth);
 
   let options = {
     // enable HTML tags in source

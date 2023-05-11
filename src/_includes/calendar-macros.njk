@@ -1,0 +1,11 @@
+{% macro monthTable(year, month) %}
+<table><tbody>
+{% for row in year | calendarForMonth(month) %}
+<tr>
+{% for day in row %}
+<td>{{ day }}</td>
+{% endfor %}
+</tr>
+{% endfor %}
+</tbody></table>
+{% endmacro %}
