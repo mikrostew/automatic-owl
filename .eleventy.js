@@ -25,8 +25,7 @@ function timestampToDateStr(timestamp) {
   return `${year}-${month}-${day}`;
 }
 
-// TODO: just figuring out how templating works...
-// (eventually this could take in some kind of callback to render specific days, somehow?)
+// array of weeks for a given year and month
 function calendarForMonth(year, month) {
   const monthIndex = month - 1;
   const dayInMonth = new Date(year, monthIndex, 1);

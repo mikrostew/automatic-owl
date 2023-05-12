@@ -1,11 +1,18 @@
-{% macro monthTable(year, month) %}
-<table><tbody>
+{% macro monthRunTable(year, month, activities) %}
+<table class="full-width text-center calendar">
+<tbody>
 {% for row in year | calendarForMonth(month) %}
 <tr>
 {% for day in row %}
+{% set date %}{{ month }}/{{ day }}/{{ year }}{% endset %}
+{% if activities[date] %}
+<td><button class="run-button" role="button">{{ day }}</button></td>
+{% else %}
 <td>{{ day }}</td>
+{% endif %}
 {% endfor %}
 </tr>
 {% endfor %}
-</tbody></table>
+</tbody>
+</table>
 {% endmacro %}

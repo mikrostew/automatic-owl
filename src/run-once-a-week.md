@@ -1,6 +1,6 @@
 ---
 title: Running Once a Week
-description: Started this in 2023
+description: Or hiking if possible. Trying to do this in 2023.
 layout: base-page
 
 ---
@@ -8,38 +8,40 @@ layout: base-page
 {% import "calendar-macros.njk" as calendar %}
 
 Jan
-{{ calendar.monthTable(2023, 1) }}
+{{ calendar.monthRunTable(2023, 1, activities) }}
 
 Feb
-{{ calendar.monthTable(2023, 2) }}
+{{ calendar.monthRunTable(2023, 2, activities) }}
 
-Mar
-{{ calendar.monthTable(2023, 3) }}
+Mar[^sick-march]
+{{ calendar.monthRunTable(2023, 3, activities) }}
+
+[^sick-march]: I was sick for most of the first full week of March, so didn't run or hike that week.
 
 Apr
-{{ calendar.monthTable(2023, 4) }}
+{{ calendar.monthRunTable(2023, 4, activities) }}
 
 May
-{{ calendar.monthTable(2023, 5) }}
+{{ calendar.monthRunTable(2023, 5, activities) }}
 
 Jun
-{{ calendar.monthTable(2023, 6) }}
+{{ calendar.monthRunTable(2023, 6, activities) }}
 
 Jul
-{{ calendar.monthTable(2023, 7) }}
+{{ calendar.monthRunTable(2023, 7, activities) }}
 
 Aug
-{{ calendar.monthTable(2023, 8) }}
+{{ calendar.monthRunTable(2023, 8, activities) }}
 
 Sep
-{{ calendar.monthTable(2023, 9) }}
+{{ calendar.monthRunTable(2023, 9, activities) }}
 
 Oct
-{{ calendar.monthTable(2023, 10) }}
+{{ calendar.monthRunTable(2023, 10, activities) }}
 
 Nov
-{{ calendar.monthTable(2023, 11) }}
+{{ calendar.monthRunTable(2023, 11, activities) }}
 
 Dev
-{{ calendar.monthTable(2023, 12) }}
+{{ calendar.monthRunTable(2023, 12, activities) }}
 

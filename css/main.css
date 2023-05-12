@@ -53,6 +53,30 @@ table thead th {
   border-width: 0 0 2px;
 }
 
+/* 100/7 = 14.29 */
+.calendar td {
+  width: 14.2%;
+}
+
+.run-button {
+  background-color: #3cc286;
+  border-radius: 12px;
+  border-style: none;
+  box-sizing: border-box;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 20px;
+  margin: 0;
+  outline: none;
+  padding: 6px 10px;
+  text-align: center;
+  text-decoration: none;
+  transition: color 100ms;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+}
+
 /* animating paths for plants */
 /* https://css-tricks.com/svg-line-animation-works/ */
 /* 3 seconds feels like a good amount of time for this */
