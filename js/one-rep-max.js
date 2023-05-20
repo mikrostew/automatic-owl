@@ -144,23 +144,23 @@ function calcOneRepMax() {
 function weightError(message) {
   const errorElem = document.getElementById('weight-error');
   errorElem.textContent = message;
-  errorElem.classList.remove('hidden');
+  errorElem.classList.remove('none');
 }
 
 function hideWeighError() {
   const errorElem = document.getElementById('weight-error');
-  errorElem.classList.add('hidden');
+  errorElem.classList.add('none');
 }
 
 function repsError(message) {
   const errorElem = document.getElementById('reps-error');
   errorElem.textContent = message;
-  errorElem.classList.remove('hidden');
+  errorElem.classList.remove('none');
 }
 
 function hideRepsError() {
   const errorElem = document.getElementById('reps-error');
-  errorElem.classList.add('hidden');
+  errorElem.classList.add('none');
 }
 
 function setOneRepMax(weight) {

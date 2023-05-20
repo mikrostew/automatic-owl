@@ -31,8 +31,12 @@ html {
   text-align: center;
 }
 
-.hidden {
+.none {
   display: none;
+}
+
+.hidden {
+  visibility: hidden;
 }
 
 .error {
@@ -53,9 +57,12 @@ table thead th {
   border-width: 0 0 2px;
 }
 
-/* 100/7 = 14.29 */
-.calendar td {
-  width: 14.2%;
+/* 7 * 10 + 30 = 100% */
+.run-calendar td {
+  width: 10%;
+}
+.run-calendar td:last-child {
+  width: 30%;
 }
 
 .run-button {
@@ -75,6 +82,9 @@ table thead th {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+.run-data {
+  font-style: italic;
 }
 
 /* animating paths for plants */

@@ -1,7 +1,9 @@
 ---
 title: Running Once a Week
 description: Or hiking if possible. Trying to do this in 2023.
-layout: base-page
+layout: script
+scriptName: run-once-a-week.js
+
 
 ---
 

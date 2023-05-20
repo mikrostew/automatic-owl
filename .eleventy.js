@@ -33,12 +33,15 @@ function calendarForMonth(year, month) {
   const numStartSpaces = dayInMonth.getDay();
   const data = Array(numStartSpaces).fill('');
   // fill in the days of the month
-  // (this is where the callback would hook in)
   while (dayInMonth.getMonth() === monthIndex) {
     data.push(dayInMonth.getDate());
     dayInMonth.setDate(dayInMonth.getDate() + 1);
   }
-  // split up into weeks (last week may be shorter, it's fine)
+  // pad the end to make this a multiple of 7
+  while (data.length % 7 !== 0) {
+    data.push('');
+  }
+  // split up into weeks
   const weekData = [];
   for (let i = 0; i < data.length; i += 7) {
     weekData.push(data.slice(i, i + 7));

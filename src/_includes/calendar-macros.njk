@@ -1,16 +1,21 @@
 {% macro monthRunTable(year, month, activities) %}
-<table class="full-width text-center calendar">
+<table class="full-width text-center run-calendar">
 <tbody>
 {% for row in year | calendarForMonth(month) %}
 <tr>
+{% set runData = "" %}
 {% for day in row %}
 {% set date %}{{ month }}/{{ day }}/{{ year }}{% endset %}
+{% set dateID %}{{ month }}-{{ day }}-{{ year }}{% endset %}
+{% set dateShort %}{{ month }}/{{ day }}{% endset %}
 {% if activities[date] %}
-<td><button class="run-button" role="button">{{ day }}</button></td>
+<td><button class="run-button" role="button" onclick="showText('{{ dateID }}')">{{ day }}</button></td>
+{% set runData %}<span id="{{ dateID }}" class="run-data hidden"><a href="{{ activities[date].link }}">{{ activities[date].distance }}</a></span>{% endset %}
 {% else %}
 <td>{{ day }}</td>
 {% endif %}
 {% endfor %}
+<td>{{ runData | safe }}</td>
 </tr>
 {% endfor %}
 </tbody>
