@@ -1,5 +1,21 @@
 {
   "activities": {
+    "5/18/2023": {
+      "date": "5/18/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/9094304829",
+      "time": "58:53",
+      "distance": "5.23 mi",
+      "elevation": "195 ft"
+    },
+    "5/13/2023": {
+      "date": "5/13/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/9066110880",
+      "time": "34:44",
+      "distance": "3.42 mi",
+      "elevation": "177 ft"
+    },
     "5/4/2023": {
       "date": "5/4/2023",
       "kind": "Run",
