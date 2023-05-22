@@ -38,12 +38,12 @@ scriptName: TODO
 {{ layout.header() }}
       <h1>{{ title }}</h1>
       <p>{{ description }}</p>
-      <p>(<a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ page.inputPath }}" title="See the history of this page on GitHub">{{ revisions.length }} revision{% if revisions.length > 1 %}s{% endif %}</a>, last updated {{ lastUpdated | timestampToDateStr }} &mdash; <a href="https://github.com/mikrostew/automatic-owl/blob/main/js/{{ scriptName }}">src script</a>)</p>
+      <p>(<a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ page.inputPath }}" title="See the history of this page on GitHub">{{ revisions.length }} revision{% if revisions.length > 1 %}s{% endif %}</a>, last updated {{ lastUpdated | timestampToDateStr }})</p>
       <noscript>
-        <style type="text/css">.script-container { display:none; }</style>
-        <p class="error">This page doesn't work if JavaScript is disabled! Please enable JavaScript.</p>
+        <style type="text/css">.error { border: 1px solid red; }</style>
+        <p class="error">This page doesn't work if JavaScript is disabled! Please enable JavaScript. You can see the script that would be run <a href="https://github.com/mikrostew/automatic-owl/blob/main/js/{{ scriptName }}">here</a>.</p>
       </noscript>
-      <section class="script-container">
+      <section>
 {{ content | safe }}
       </section>
 {{ layout.footer(page.inputPath) }}
