@@ -22,6 +22,7 @@
     "@11ty/eleventy": "^1.0.2",
     "@typescript-eslint/eslint-plugin": "latest",
     "@typescript-eslint/parser": "latest",
+    "eleventy-plugin-link_to": "^0.4.1",
     "eslint": "latest",
     "eslint-config-prettier": "^8.6.0",
     "markdown-it": "^13.0.1",

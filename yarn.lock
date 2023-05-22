@@ -684,6 +684,7 @@ __metadata:
     "@11ty/eleventy": ^1.0.2
     "@typescript-eslint/eslint-plugin": latest
     "@typescript-eslint/parser": latest
+    eleventy-plugin-link_to: ^0.4.1
     eslint: latest
     eslint-config-prettier: ^8.6.0
     markdown-it: ^13.0.1
@@ -919,7 +920,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"chalk@npm:^4.0.0, chalk@npm:^4.0.2":
+"chalk@npm:^4.0.0, chalk@npm:^4.0.2, chalk@npm:^4.1.0":
   version: 4.1.2
   resolution: "chalk@npm:4.1.2"
   dependencies:
@@ -1408,6 +1409,17 @@ __metadata:
   bin:
     ejs: bin/cli.js
   checksum: 1d40d198ad52e315ccf37e577bdec06e24eefdc4e3c27aafa47751a03a0c7f0ec4310254c9277a5f14763c3cd4bbacce27497332b2d87c74232b9b1defef8efc
+  languageName: node
+  linkType: hard
+
+"eleventy-plugin-link_to@npm:^0.4.1":
+  version: 0.4.1
+  resolution: "eleventy-plugin-link_to@npm:0.4.1"
+  dependencies:
+    chalk: ^4.1.0
+  peerDependencies:
+    "@11ty/eleventy": ">=0.11.0"
+  checksum: c8d131539f712ae870dd1ab552f24238ccd6fff72ebdb12739b3f772a942a8a1b05f44d539fc80fa97c1fc9d3ded7497d9ce9e6bd650210f4a147879d7e02e55
   languageName: node
   linkType: hard
 

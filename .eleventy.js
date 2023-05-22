@@ -2,6 +2,7 @@ const markdownIt = require('markdown-it');
 const markdownItFootnote = require('markdown-it-footnote');
 const markdownItMark = require('markdown-it-mark');
 const markdownItMathjax3 = require('markdown-it-mathjax3');
+const pluginLinkto = require('eleventy-plugin-link_to');
 
 function hasUpdates(item) {
   return item.data?.lastUpdated !== undefined;
@@ -66,6 +67,8 @@ module.exports = function (eleventyConfig) {
   // custom filters for templates
   eleventyConfig.addFilter('timestampToDateStr', timestampToDateStr);
   eleventyConfig.addFilter('calendarForMonth', calendarForMonth);
+
+  eleventyConfig.addPlugin(pluginLinkto);
 
   let options = {
     // enable HTML tags in source
