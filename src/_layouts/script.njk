@@ -36,9 +36,7 @@ scriptName: TODO
   <body>
     <article class="main">
 {{ layout.header() }}
-      <h1>{{ title }}</h1>
-      <p>{{ description }}</p>
-      <p>(<a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ page.inputPath }}" title="See the history of this page on GitHub">{{ revisions.length }} revision{% if revisions.length > 1 %}s{% endif %}</a>, last updated {{ lastUpdated | timestampToDateStr }})</p>
+{{ layout.title(title, description) }}
       <noscript>
         <style type="text/css">.error { border: 1px solid red; }</style>
         <p class="error">This page doesn't work if JavaScript is disabled! Please enable JavaScript. You can see the script that would be run <a href="https://github.com/mikrostew/automatic-owl/blob/main/js/{{ scriptName }}">here</a>.</p>
@@ -46,7 +44,7 @@ scriptName: TODO
       <section>
 {{ content | safe }}
       </section>
-{{ layout.footer(page.inputPath) }}
+{{ layout.footer(page.inputPath, revisions.length, lastUpdated) }}
     </article>
   </body>
 </html>

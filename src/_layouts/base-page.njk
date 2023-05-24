@@ -38,11 +38,9 @@ description: TODO
   <body>
     <article class="main">
 {{ layout.header() }}
-      <h1>{{ title }}</h1>
-      <p>{{ description }}</p>
-      <p>(<a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ page.inputPath }}" title="See the history of this page on GitHub">{{ revisions.length }} revision{% if revisions.length > 1 %}s{% endif %}</a>, last updated {{ lastUpdated | timestampToDateStr }})</p>
+{{ layout.title(title, description) }}
 {{ content | safe }}
-{{ layout.footer(page.inputPath) }}
+{{ layout.footer(page.inputPath, revisions.length, lastUpdated) }}
     </article>
   </body>
 </html>

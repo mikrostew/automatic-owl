@@ -4,9 +4,15 @@
 </header>
 {% endmacro %}
 
-{% macro footer(pagePath) %}
+{% macro title(title, description) %}
+<h1>{{ title }}</h1>
+<p class="subtitle">{{ description }}</p>
+{% endmacro %}
+
+{% macro footer(pagePath, numRevisions, lastUpdated) %}
 <footer>
   <hr>
-  <a href="https://github.com/mikrostew/automatic-owl/blob/main/{{ pagePath }}">View this page on GitHub</a>
+  <p>History: <a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ pagePath }}" title="See the history of this page on GitHub">{{ numRevisions }} revision{% if numRevisions > 1 %}s{% endif %}</a>, last updated {{ lastUpdated | timestampToDateStr }}</p>
+  <p>Current: <a href="https://github.com/mikrostew/automatic-owl/blob/main/{{ pagePath }}">View this page on GitHub</a></p>
 </footer>
 {% endmacro %}
