@@ -5,9 +5,11 @@ layout: base-page
 
 ---
 
-I track runs and hikes on [strava](https://www.strava.com/athletes/mikrostew). I'm trying to [run once a week]({% link_to 'run-once-a-week' %}) this year.
+### Current
+
+[Strava](https://www.strava.com/athletes/mikrostew): I track runs and hikes there. I'm trying to [run once a week]({% link_to 'run-once-a-week' %}) this year.
 
 
-### Unused
+### Unused / Abandoned
 
-I used to post on [twitter](https://twitter.com/mikrostew), but I [removed all my data]({% link_to 'bye-twitter' %}) and no longer use it.
+[Twitter](https://twitter.com/mikrostew): I used to post there infrequently, but I [removed my data]({% link_to 'bye-twitter' %}) and no longer use it.
