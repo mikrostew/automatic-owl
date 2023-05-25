@@ -1,6 +1,6 @@
 ---
 title: Running Once a Week
-description: Or hiking if possible. Trying to do this in 2023.
+description: Trying to run (or hike) once every week in 2023.
 layout: script
 scriptName: run-once-a-week.js
 
@@ -9,41 +9,46 @@ scriptName: run-once-a-week.js
 
 {% import "calendar-macros.njk" as calendar %}
 
-Jan
+### January
 {{ calendar.monthRunTable(2023, 1, activities) }}
 
-Feb
+### February
 {{ calendar.monthRunTable(2023, 2, activities) }}
 
-Mar[^sick-march]
+### March[^sick-march]
 {{ calendar.monthRunTable(2023, 3, activities) }}
 
-[^sick-march]: I was sick for most of the first full week of March, so didn't run or hike that week.
+[^sick-march]: I was sick for most of the first full week of March, and didn't run or hike that week.
 
-Apr
+### April
 {{ calendar.monthRunTable(2023, 4, activities) }}
 
-May
+### May
 {{ calendar.monthRunTable(2023, 5, activities) }}
 
-Jun
+### June
 {{ calendar.monthRunTable(2023, 6, activities) }}
 
-Jul
+### July
 {{ calendar.monthRunTable(2023, 7, activities) }}
 
-Aug
+### August
 {{ calendar.monthRunTable(2023, 8, activities) }}
 
-Sep
+### September
 {{ calendar.monthRunTable(2023, 9, activities) }}
 
-Oct
+### October
 {{ calendar.monthRunTable(2023, 10, activities) }}
 
-Nov
+### November
 {{ calendar.monthRunTable(2023, 11, activities) }}
 
-Dev
+### December
 {{ calendar.monthRunTable(2023, 12, activities) }}
+
+
+## Weeks of the Year
+
+{{ calendar.yearRunChart(2023, activities) }}
 

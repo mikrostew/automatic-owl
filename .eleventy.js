@@ -51,6 +51,56 @@ function calendarForMonth(year, month) {
   return weekData;
 }
 
+// array of miles and relative percentage for weeks in the year
+function milesByWeek(year, activities) {
+  // figure out the max mileage, for scaling everything else
+  const distances = Object.keys(activities).map((date) =>
+    Number(activities[date].distance.replace(' mi', ''))
+  );
+  const maxDistance = distances.reduce((a, b) => Math.max(a, b), -Infinity);
+
+  const weeks = [];
+  let weeklyMiles = 0;
+
+  // figure out by week, starting from Jan first
+  const date = new Date(year, 0, 1);
+
+  while (true) {
+    if (date.getFullYear() !== year) {
+      break;
+    }
+    const dateFmt = `${
+      date.getMonth() + 1
+    }/${date.getDate()}/${date.getFullYear()}`;
+    const activityData = activities[dateFmt];
+
+    if (activityData !== undefined) {
+      weeklyMiles += Number(activityData.distance.replace(' mi', ''));
+    }
+
+    date.setDate(date.getDate() + 1);
+    if (date.getDay() === 0) {
+      weeks.push({
+        miles: weeklyMiles,
+        percentage: ((100 * weeklyMiles) / maxDistance).toFixed(2),
+      });
+      weeklyMiles = 0;
+    }
+  }
+
+  // anything leftover?
+  if (date.getDay() !== 0) {
+    weeks.push({
+      miles: weeklyMiles,
+      percentage: ((100 * weeklyMiles) / maxDistance).toFixed(2),
+    });
+  }
+
+  console.log(weeks);
+
+  return weeks;
+}
+
 // see https://www.11ty.dev/docs/config/
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/favicon.ico');
@@ -67,6 +117,7 @@ module.exports = function (eleventyConfig) {
   // custom filters for templates
   eleventyConfig.addFilter('timestampToDateStr', timestampToDateStr);
   eleventyConfig.addFilter('calendarForMonth', calendarForMonth);
+  eleventyConfig.addFilter('milesByWeek', milesByWeek);
 
   eleventyConfig.addPlugin(pluginLinkto);
 

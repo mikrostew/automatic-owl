@@ -21,3 +21,17 @@
 </tbody>
 </table>
 {% endmacro %}
+
+{% macro yearRunChart(year, activities) %}
+{% set leftOffset = 0 %}
+<div class="run-chart">
+<ul class="run-weeks">
+{% for week in year | milesByWeek(activities) %}
+<li class="run-week" style="left: {{ leftOffset }}%;">
+<div class="bar" style="height: {{ week.percentage }}%;"></div>
+</li>
+{% set leftOffset = leftOffset + 1.75 %}
+{% endfor %}
+</ul>
+</div>
+{% endmacro %}

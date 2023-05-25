@@ -98,6 +98,32 @@ table thead th {
   font-style: italic;
 }
 
+.run-chart {
+  height: 100px;
+}
+ul.run-weeks {
+  position: relative;
+  height: 100px;
+  list-style: none;
+}
+li.run-week {
+  position: absolute;
+  bottom: 0px;
+  /* 100/54 possible weeks in year = ~1.85, going slightly smaller */
+  width: 1.75%;
+  height: 100%;
+  border-left: 1px solid white;
+}
+.run-week .bar {
+  position: absolute;
+  background: #3cc286;
+  border-bottom: 1px solid #3cc286;
+  bottom: 0px;
+  display: block;
+  left: 0;
+  width: 100%;
+}
+
 /* animating paths for plants */
 /* https://css-tricks.com/svg-line-animation-works/ */
 /* 3 seconds feels like a good amount of time for this */
