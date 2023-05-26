@@ -96,8 +96,6 @@ function milesByWeek(year, activities) {
     });
   }
 
-  console.log(weeks);
-
   return weeks;
 }
 
