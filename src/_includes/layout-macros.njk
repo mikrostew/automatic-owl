@@ -1,6 +1,33 @@
+{% macro meta(title, description, url) %}
+<meta charset="utf-8" />
+{# Dunno if this is needed anymore? #}<meta http-equiv='X-UA-Compatible' content='IE=edge' />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{{ title }} | Automatic Owl</title>
+<!-- notice me, SEO senpai -->
+<meta name="author" content="mikrostew" />
+<meta name="description" content="{{ description }}" />
+<!-- twitter -->
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content="{{ title }} | Automatic Owl" />
+<meta name="twitter:description" content="{{ description }}" />
+<meta name="twitter:site" content="@mikrostew" />
+<meta name="twitter:creator" content="@mikrostew" />
+<meta name="twitter:image" content="https://automaticowl.net/img/site-logo.png" />
+<!-- open graph -->
+<meta property="og:title" content="{{ title }} | Automatic Owl" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://automaticowl.net{{ url }}" />
+<meta property="og:image" content="https://automaticowl.net/img/site-logo.png" />
+<meta property="og:description" content="{{ description }}" />
+<meta property="og:site_name" content="Automatic Owl" />
+<!-- for IndieAuth -->
+<link rel="pgpkey" href="/automaticowl.pub" />
+<link rel="stylesheet" type="text/css" href="/css/main.css" />
+{% endmacro %}
+
 {% macro header() %}
 <header>
-  <a href="/">automatic owl</a>
+<a href="/">automatic owl</a>
 </header>
 {% endmacro %}
 
@@ -11,8 +38,8 @@
 
 {% macro footer(pagePath, numRevisions, lastUpdated) %}
 <footer>
-  <hr>
-  <p>History: <a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ pagePath }}" title="See the history of this page on GitHub">{{ numRevisions }} revision{% if numRevisions > 1 %}s{% endif %}</a>, last updated {{ lastUpdated | timestampToDateStr }}</p>
-  <p>Current: <a href="https://github.com/mikrostew/automatic-owl/blob/main/{{ pagePath }}">View this page on GitHub</a></p>
+<hr>
+<p>History: <a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ pagePath }}" title="See the history of this page on GitHub">{{ numRevisions }} revision{% if numRevisions > 1 %}s{% endif %}</a>, last updated {{ lastUpdated | timestampToDateStr }}</p>
+<p>Current: <a href="https://github.com/mikrostew/automatic-owl/blob/main/{{ pagePath }}">View this page on GitHub</a></p>
 </footer>
 {% endmacro %}

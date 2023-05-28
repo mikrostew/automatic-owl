@@ -7,44 +7,24 @@ scriptName: TODO
 ---
 
 {% import "layout-macros.njk" as layout %}
-
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- notice me, SEO senpai -->
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{{ title }} | Automatic Owl</title>
-    <meta name="description" content="{{ description }}">
-    <!-- twitter -->
-    <meta name="twitter:card" content="summary">
-    <meta name="twitter:title" content="{{ title }} | Automatic Owl">
-    <meta name="twitter:description" content="{{ description }}">
-    <meta name="twitter:creator" content="@mikrostew">
-    <meta name="twitter:image" content="https://automaticowl.net/img/site-logo.png">
-    <!-- open graph -->
-    <meta property="og:title" content="{{ title }} | Automatic Owl" />
-    <meta property="og:type" content="article" />
-    <meta property="og:url" content="https://automaticowl.net{{ page.url }}" />
-    <meta property="og:image" content="https://automaticowl.net/img/site-logo.png" />
-    <meta property="og:description" content="{{ description }}" />
-    <meta property="og:site_name" content="Automatic Owl" />
-
-    <link rel="stylesheet" type="text/css" href="/css/main.css" />
-    <script type="text/javascript" src="/js/{{ scriptName }}" defer></script>
-  </head>
-  <body>
-    <article class="main">
+<head>
+{{ layout.meta(title, description, page.url) }}
+<script type="text/javascript" src="/js/{{ scriptName }}" defer></script>
+</head>
+<body>
+<article class="main">
 {{ layout.header() }}
 {{ layout.title(title, description) }}
-      <noscript>
-        <style type="text/css">.error { border: 1px solid red; }</style>
-        <p class="error">This page doesn't work if JavaScript is disabled! Please enable JavaScript. You can see the script that would be run <a href="https://github.com/mikrostew/automatic-owl/blob/main/js/{{ scriptName }}">here</a>.</p>
-      </noscript>
-      <section>
+<noscript>
+<style type="text/css">.error { border: 1px solid red; }</style>
+<p class="error">This page doesn't work if JavaScript is disabled! Please enable JavaScript. You can see the script that would be run <a href="https://github.com/mikrostew/automatic-owl/blob/main/js/{{ scriptName }}">here</a>.</p>
+</noscript>
+<section>
 {{ content | safe }}
-      </section>
+</section>
 {{ layout.footer(page.inputPath, revisions.length, lastUpdated) }}
-    </article>
-  </body>
+</article>
+</body>
 </html>
