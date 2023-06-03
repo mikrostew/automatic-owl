@@ -3,6 +3,7 @@ const markdownItFootnote = require('markdown-it-footnote');
 const markdownItMark = require('markdown-it-mark');
 const markdownItMathjax3 = require('markdown-it-mathjax3');
 const pluginLinkto = require('eleventy-plugin-link_to');
+const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
 function hasUpdates(item) {
   return item.data?.lastUpdated !== undefined;
@@ -118,6 +119,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('milesByWeek', milesByWeek);
 
   eleventyConfig.addPlugin(pluginLinkto);
+  eleventyConfig.addPlugin(syntaxHighlight);
 
   let options = {
     // enable HTML tags in source
