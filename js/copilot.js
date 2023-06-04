@@ -14,8 +14,11 @@ for (const block of codeBlocks) {
   const animationSteps = [];
   let animationStep = 0;
   let elementWithCursor = undefined;
+  const elementsToHideForReplay = [];
+  const elementsToSuggestForReplay = [];
 
   const elementsToAnimate = block.querySelectorAll('.js-type');
+  const replayButton = block.querySelector('button');
 
   // insert a small delay before starting the animation
   animationSteps.push({
@@ -27,6 +30,7 @@ for (const block of codeBlocks) {
 
   // figure out the steps to animate each element
   for (const element of elementsToAnimate) {
+    elementsToHideForReplay.push(element);
     const text = element.textContent;
 
     // if it's a copilot suggestion, simulate waiting for that
@@ -39,6 +43,7 @@ for (const block of codeBlocks) {
       });
 
       if (element.classList.contains('copilot-accept')) {
+        elementsToSuggestForReplay.push(element);
         // show the suggestion, accept it, then keep going
         animationSteps.push({
           run: () => {
@@ -64,7 +69,7 @@ for (const block of codeBlocks) {
           run: () => {
             element.classList.remove('hidden');
           },
-          delay: DELAY_DONE,
+          delay: DELAY_TYPING,
         });
       }
     } else {
@@ -99,6 +104,14 @@ for (const block of codeBlocks) {
     }
   }
 
+  // once the animation is done, show the replay button
+  animationSteps.push({
+    run: () => {
+      replayButton.classList.remove('hidden');
+    },
+    delay: DELAY_DONE,
+  });
+
   // how to do the animation, with delay
   const animate = () => {
     if (animationStep < animationSteps.length) {
@@ -110,6 +123,23 @@ for (const block of codeBlocks) {
       }
     }
   };
+
+  // how to replay the animation
+  replayButton.addEventListener('click', () => {
+    // hide the button so it can't be clicked again
+    // (I should probably remove the event listener, in case the button is focused, whatever)
+    replayButton.classList.add('hidden');
+    // reset classes for animated elements
+    for (const element of elementsToHideForReplay) {
+      element.classList.add('hidden');
+    }
+    for (const e of elementsToSuggestForReplay) {
+      e.classList.add('copilot-suggest');
+    }
+    // then re-run the animation
+    animationStep = 0;
+    animate();
+  });
 
   // start the animation
   // TODO: only start when the code block is visible

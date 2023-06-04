@@ -16,7 +16,8 @@ I don't need your judgement, Copilot
   <span class="token comment"><span class="js-type hidden">// (I should </span><span class="js-type copilot-suggest hidden">probably use commander or something, but I'm lazy)</span></span>
   <span class="token keyword">const</span> <span class="token literal-property property">cliOptions</span><span class="token operator">:</span> CliOptions <span class="token operator">=</span> <span class="token function">yargs</span><span class="token punctuation">(</span>process<span class="token punctuation">.</span>argv<span class="token punctuation">.</span><span class="token function">slice</span><span class="token punctuation">(</span><span class="token number">2</span><span class="token punctuation">)</span><span class="token punctuation">)</span>
     <span class="token punctuation">.</span><span class="token function">scriptName</span><span class="token punctuation">(</span><span class="token string">'some-script'</span><span class="token punctuation">)</span>
-    <span class="token comment">// etc.</span></code></pre>
+    <span class="token comment">// etc.</span>
+<button class="hidden">&#8635; Replay</button></code></pre>
 
 
 Copilot does know the best password to suggest
@@ -25,7 +26,8 @@ Copilot does know the best password to suggest
 
 <span class="token comment js-type hidden"># default user and password</span>
 <span class="token assign-left variable js-type hidden">USER</span><span class="token operator js-type hidden">=</span><span class="token string js-type hidden">"user"</span>
-<span class="token assign-left variable js-type hidden">PASS</span><span class="token operator js-type hidden">=</span><span class="token string js-type hidden">"h</span><span class="js-type copilot-suggest hidden">unter2"</span></code></pre>
+<span class="token assign-left variable js-type hidden">PASS</span><span class="token operator js-type hidden">=</span><span class="token string js-type hidden">"h</span><span class="js-type copilot-suggest hidden">unter2"</span>
+<button class="hidden">&#8635; Replay</button></code></pre>
 
 
 The suggestion isn't quite right, and then you're giving me markdown?
@@ -41,7 +43,8 @@ The suggestion isn't quite right, and then you're giving me markdown?
 ```</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">$ ./new-script.sh</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">one,two,three four,five
-```</span></code></pre>
+```</span>
+<button class="hidden">&#8635; Replay</button></code></pre>
 
 
 If I change the comment slightly, then it gives me some correct code (and starts adding comments after to explain it, instead of markdown)
@@ -56,7 +59,8 @@ If I change the comment slightly, then it gives me some correct code (and starts
 <span class="js-type hidden"></span><span class="token comment js-type copilot-suggest copilot-accept hidden"># one,two,three four,five</span>
 <span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest copilot-accept hidden">note that the third element has a space in it</span>
 <span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest copilot-accept hidden">but it's still treated as a single element</span>
-<span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest copilot-accept hidden">because it's quoted</span></code></pre>
+<span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest copilot-accept hidden">because it's quoted</span>
+<button class="hidden">&#8635; Replay</button></code></pre>
 
 
 But, if I keep going with that comment, it will keep going and start to repeat
@@ -89,7 +93,8 @@ But, if I keep going with that comment, it will keep going and start to repeat
 <span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest copilot-accept hidden">and the comma is not part of the element</span>
 <span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest copilot-accept hidden">because it's not quoted</span>
 <span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest copilot-accept hidden">and the comma is not treated as a delimiter</span>
-<span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest copilot-accept hidden">because IFS is set to comma</span></code></pre>
+<span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest copilot-accept hidden">because IFS is set to comma</span>
+<button class="hidden">&#8635; Replay</button></code></pre>
 
 
 More markdown nonsense in a bash script
@@ -106,7 +111,8 @@ Then, make it executable:
 Then, add it to your crontab:
 ```</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden"><span class="token function">crontab</span> -e
-```</span></code></pre>
+```</span>
+<button class="hidden">&#8635; Replay</button></code></pre>
 
 
 For an empty script, this is probably what copilot has pulled from the most
@@ -114,7 +120,8 @@ For an empty script, this is probably what copilot has pulled from the most
 (example of why this doesn't really _know_ what you're trying to do)
 
 <pre class="language-bash"><code class="language-bash"><span class="token shebang important js-type hidden">#!/usr/bin/env bash</span>
-<span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest hidden">This script is called by the systemd service</span></span></code></pre>
+<span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest hidden">This script is called by the systemd service</span></span>
+<button class="hidden">&#8635; Replay</button></code></pre>
 
 
 Seems like it has some guards around providing secrets from its training data
@@ -122,7 +129,8 @@ Seems like it has some guards around providing secrets from its training data
 <pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
 
 <span class="token comment js-type hidden"># key for AWS</span>
-<span class="js-type hidden"><span class="token assign-left variable">API_KEY</span><span class="token operator">=</span>"</span><span class="js-type copilot-suggest hidden">XXXXXXXX</span></code></pre>
+<span class="js-type hidden"><span class="token assign-left variable">API_KEY</span><span class="token operator">=</span>"</span><span class="js-type copilot-suggest hidden">XXXXXXXX</span>
+<button class="hidden">&#8635; Replay</button></code></pre>
 
 
 Also, it will provide the contents of the GPLv3 if I start typing that, so I'm not sure about the legality of what this is doing...
@@ -134,7 +142,8 @@ Also, it will provide the contents of the GPLv3 if I start typing that, so I'm n
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">Everyone is permitted to copy and distribute verbatim copies</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">of this license document, but changing it is not allowed.</span>
 <span class="js-type hidden"></span>
-<span class="js-type hidden"></span><span class="js-type copilot-suggest hidden">Preamble</span></code></pre>
+<span class="js-type hidden"></span><span class="js-type copilot-suggest hidden">Preamble</span>
+<button class="hidden">&#8635; Replay</button></code></pre>
 
 
 Also, when my internet is down (like today), it doesn't work
