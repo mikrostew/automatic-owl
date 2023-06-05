@@ -3,8 +3,9 @@ const DELAY_INITIAL = 100;
 const DELAY_TYPING = 25;
 const DELAY_SUGGEST = 500;
 const DELAY_ACCEPT = 1000;
+const DELAY_REJECT = 0;
 // special delay indicating to stop the animation
-const DELAY_DONE = 0;
+const DELAY_DONE = -1;
 
 // find all the code blocks
 const codeBlocks = document.querySelectorAll('pre > code');
@@ -15,6 +16,7 @@ for (const block of codeBlocks) {
   let animationStep = 0;
   let elementWithCursor = undefined;
   const elementsToHideForReplay = [];
+  const elementsToNoneForReplay = [];
   const elementsToSuggestForReplay = [];
 
   const elementsToAnimate = block.querySelectorAll('.js-type');
@@ -62,6 +64,22 @@ for (const block of codeBlocks) {
             elementWithCursor = element;
           },
           delay: DELAY_TYPING,
+        });
+      } else if (element.classList.contains('copilot-reject')) {
+        elementsToNoneForReplay.push(element);
+        // show the suggestion, hide it, then keep going
+        animationSteps.push({
+          run: () => {
+            element.classList.remove('hidden');
+          },
+          delay: DELAY_ACCEPT,
+        });
+        animationSteps.push({
+          run: () => {
+            element.classList.add('none');
+            element.classList.add('hidden');
+          },
+          delay: DELAY_REJECT,
         });
       } else {
         // otherwise show the suggestion and stop
@@ -135,6 +153,9 @@ for (const block of codeBlocks) {
     }
     for (const e of elementsToSuggestForReplay) {
       e.classList.add('copilot-suggest');
+    }
+    for (const e of elementsToNoneForReplay) {
+      e.classList.remove('none');
     }
     // then re-run the animation
     animationStep = 0;

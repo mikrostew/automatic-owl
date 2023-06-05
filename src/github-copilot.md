@@ -146,4 +146,21 @@ Also, it will provide the contents of the GPLv3 if I start typing that, so I'm n
 <button class="hidden">&#8635; Replay</button></code></pre>
 
 
+The occasions where I find it most helpful are when it suggests the thing that I was already planning to type.
+
+So I don't have to think about what it is suggesting, to decide if it is what I want, or if it makes sense, etc. I can just accept the suggestion and keep going. It's not introducing anything novel or complicated, it's just saving me keystrokes, making my work go faster.
+
+Like in this instance where I was collecting the output of [`tokei`](https://github.com/XAMPPRocky/tokei) to count lines of code for some files:
+
+<pre class="language-typescript"><code class="language-typescript"><span class="token comment">// (rest of the code snipped)</span>
+
+<span class="token keyword js-type hidden">interface</span><span class="js-type hidden"> </span><span class="token class-name js-type hidden">LocInfo</span><span class="js-type hidden"> </span><span class="token punctuation js-type hidden">{</span>
+  <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-reject hidden">code: number;</span><span class="js-type hidden">l</span><span class="js-type copilot-suggest copilot-accept hidden">ines<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></span>
+  <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">code<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></span>
+  <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">comments<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></span>
+  <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">blanks<span class="token operator">:</span> <span class="token builtin">number</span><span class="token punctuation">;</span></span>
+<span class="js-type hidden"></span><span class="token punctuation js-type copilot-suggest hidden">}</span>
+<button class="hidden">&#8635; Replay</button></code></pre>
+
+
 Also, when my internet is down (like today), it doesn't work
