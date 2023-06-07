@@ -7,6 +7,16 @@ const DELAY_REJECT = 0;
 // special delay indicating to stop the animation
 const DELAY_DONE = -1;
 
+// check that the entire element is visible in the viewport
+function elementIsFullyVisible(element) {
+  const rect = element.getBoundingClientRect();
+  // don't care about left and right for these, just top and bottom
+  return (
+    rect.top >= 0 &&
+    rect.bottom <= (window.innerHeight || document.documentElement.clientHeight)
+  );
+}
+
 // find all the code blocks
 const codeBlocks = document.querySelectorAll('pre > code');
 
@@ -21,14 +31,6 @@ for (const block of codeBlocks) {
 
   const elementsToAnimate = block.querySelectorAll('.js-type');
   const replayButton = block.querySelector('button');
-
-  // insert a small delay before starting the animation
-  animationSteps.push({
-    run: () => {
-      /* do nothing */
-    },
-    delay: DELAY_INITIAL,
-  });
 
   // figure out the steps to animate each element
   for (const element of elementsToAnimate) {
@@ -162,7 +164,18 @@ for (const block of codeBlocks) {
     animate();
   });
 
-  // start the animation
-  // TODO: only start when the code block is visible
-  animate();
+  const animateIfInView = () => {
+    if (elementIsFullyVisible(block)) {
+      setTimeout(animate, DELAY_INITIAL);
+      // once this has been started, don't re-start it
+      document.removeEventListener('scroll', animateIfInView);
+    }
+  };
+
+  // start the animation if in view, or after scrolling into view
+  if (elementIsFullyVisible(block)) {
+    setTimeout(animate, DELAY_INITIAL);
+  } else {
+    document.addEventListener('scroll', animateIfInView);
+  }
 }
