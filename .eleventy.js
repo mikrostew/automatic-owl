@@ -16,6 +16,40 @@ function updatedThings(collectionApi) {
   return recentlyUpdated;
 }
 
+// markdown options & config
+let mdOptions = {
+  // enable HTML tags in source
+  html: true,
+
+  // auto-convert URL-like text to link
+  linkify: true,
+
+  // enables some nice replacements, and smart quotes
+  // (see https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js)
+  // (c) (C) → ©
+  // (tm) (TM) → ™
+  // (r) (R) → ®
+  // +- → ±
+  // (p) (P) -> §
+  // ... → … (also ?.... → ?.., !.... → !..)
+  // ???????? → ???, !!!!! → !!!, `,,` → `,`
+  // -- → &ndash;, --- → &mdash;
+  typographer: true,
+};
+
+const md = markdownIt(mdOptions)
+  .use(markdownItMark)
+  .use(markdownItFootnote)
+  .use(markdownItMathjax3);
+
+// add a "Notes" header to the footnotes
+// (adapted from https://github.com/markdown-it/markdown-it-footnote#customize)
+md.renderer.rules.footnote_block_open = () =>
+  '<hr class="footnotes-sep">\n' +
+  '<h4>Notes</h4>\n' +
+  '<section class="footnotes">\n' +
+  '<ol class="footnotes-list">\n';
+
 // filters
 
 // TODO: this is not quite right, because timezones, but close enough for now
@@ -100,6 +134,10 @@ function milesByWeek(year, activities) {
   return weeks;
 }
 
+// paired shortcode to make notes
+const noteShortcode = (content) =>
+  `<div class="note">${md.render(content)}</div>`;
+
 // see https://www.11ty.dev/docs/config/
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/favicon.ico');
@@ -110,6 +148,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('img');
   eleventyConfig.addPassthroughCopy('js');
 
+  // additional plugins
+  eleventyConfig.addPlugin(pluginLinkto);
+  eleventyConfig.addPlugin(syntaxHighlight);
+
   // collections to display on the home page
   eleventyConfig.addCollection('updated', updatedThings);
 
@@ -118,43 +160,10 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('calendarForMonth', calendarForMonth);
   eleventyConfig.addFilter('milesByWeek', milesByWeek);
 
-  eleventyConfig.addPlugin(pluginLinkto);
-  eleventyConfig.addPlugin(syntaxHighlight);
+  // custom shortcodes
+  eleventyConfig.addPairedShortcode('note', noteShortcode);
 
-  let options = {
-    // enable HTML tags in source
-    html: true,
-
-    // auto-convert URL-like text to link
-    linkify: true,
-
-    // enables some nice replacements, and smart quotes
-    // (see https://github.com/markdown-it/markdown-it/blob/master/lib/rules_core/replacements.js)
-    // (c) (C) → ©
-    // (tm) (TM) → ™
-    // (r) (R) → ®
-    // +- → ±
-    // (p) (P) -> §
-    // ... → … (also ?.... → ?.., !.... → !..)
-    // ???????? → ???, !!!!! → !!!, `,,` → `,`
-    // -- → &ndash;, --- → &mdash;
-    typographer: true,
-  };
-
-  // markdown config
-  const md = markdownIt(options)
-    .use(markdownItMark)
-    .use(markdownItFootnote)
-    .use(markdownItMathjax3);
   eleventyConfig.setLibrary('md', md);
-
-  // add a "Notes" header to the footnotes
-  // (adapted from https://github.com/markdown-it/markdown-it-footnote#customize)
-  md.renderer.rules.footnote_block_open = () =>
-    '<hr class="footnotes-sep">\n' +
-    '<h4>Notes</h4>\n' +
-    '<section class="footnotes">\n' +
-    '<ol class="footnotes-list">\n';
 
   // other config that doesn't use the API
   return {

@@ -6,9 +6,11 @@ scriptName: copilot.js
 
 ---
 
-I did some screen captures of things I found interesting when trying out GH Copilot (https://github.com/features/copilot), and instead of including multi-megabyte videos or gifs here, I decided to animate them, like the animations on the copilot site.
 
 
+{% note %}
+I captured some screen recordings when trying out Copilot, but didn't want to include multi-megabyte videos or gifs here. It was more fun to animate them using JS (similar to the animations on the Copilot site).
+{% endnote %}
 I don't need your judgement, Copilot
 
 <pre class="language-js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
