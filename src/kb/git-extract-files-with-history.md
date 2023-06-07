@@ -2,6 +2,8 @@
 title: Extracting Files With Commit History From a Git Repo
 description: My quest to extract some files from my dotfiles repo, while maintaining their commit history.
 layout: base-page
+extraCSS:
+ - code-blocks
 
 ---
 
@@ -82,7 +84,7 @@ And `$GIT_COMMIT` is described on the [git-filter-branch page](https://git-scm.c
 
 > The &lt;command&gt; argument is always evaluated in the shell context using the eval command (with the notable exception of the commit filter, for technical reasons). Prior to that, the $GIT_COMMIT environment variable will be set to contain the id of the commit being rewritten.
 
-This part is resetting the specified files to their state at the commit specified by $GIT_COMMIT.
+This part is resetting the specified files to their state at the commit specified by `$GIT_COMMIT`.
 
 ### Ok, so what are these --index-filter commands doing?
 
@@ -124,8 +126,8 @@ Ok, so this operates on all the brances in the repo.
 >
 > Commits modifying the given &lt;paths&gt; are selected.
 
-Ok, so the files are listed again as the &lt;paths&gt; to rev-list, which limits the commits to only those that modify those particular files.
-Which makes sense, because if all the commits were included to the --index-filter, it would create a bunch of extra empty commits corresponding to the original commits when none of these files were modified.
+Ok, so the files are listed again as the `<paths>` to rev-list, which limits the commits to only those that modify those particular files.
+Which makes sense, because if all the commits were included to the `--index-filter`, it would create a bunch of extra empty commits corresponding to the original commits when none of these files were modified.
 
 ### Does this actually work?
 
@@ -140,7 +142,7 @@ Here we go.
 
 First, I'm cloning this repo to another location, and removing the `origin` config, so that in case I screw things up I'm not going to accidentally push those changes back to the original repository:
 
-```
+```bash
 $ git clone git@github.com:mikrostew/dotfiles.git
 $ cd dotfiles/
 $ git remote rm origin
@@ -148,20 +150,20 @@ $ git remote rm origin
 
 Now, running the actual command, to extract the `generate-scripts.sh` file:
 
-```
+```bash
 $ git filter-branch --index-filter 'git read-tree --empty; git reset $GIT_COMMIT -- generate-scripts.sh' -- --all -- generate-scripts.sh
 Rewrite 00eb6998ec49f41bd0af25b25ac679240532c57a (1/36) (0 seconds passed, remaining 0 predicted)    Unstaged changes after reset:
 D    generate-scripts.sh
 Rewrite 07e1d05bef0f575c6af2b5dc206501d2c762d68b (2/36) (0 seconds passed, remaining 0 predicted)    Unstaged changes after reset:
 D    generate-scripts.sh
 
-(lots more output...)
+# (lots more output...)
 
 Ref 'refs/heads/master' was rewritten
 ```
 
 I used `gitk` to look at the commits, and that left me with the history I expected - 36 commits that touched that file.
-So I guess it _DOES_ work after all, how about that.
+So I guess it _does_ work after all, how about that.
 
 ### What if the file has been renamed?
 
@@ -169,7 +171,7 @@ The other file I wanted to extract had actually been renamed at some point in th
 
 You can see that using the `--follow` option to `git log`:
 
-```
+```bash
 $ git log --name-only --oneline --follow .bash_repo_status
 84fe190 cleanup git status debug function
 .bash_repo_status
@@ -198,7 +200,7 @@ I don't want to include `.bashrc` in this, since that will give me all the histo
 
 Let's do this.
 
-```
+```bash
 $ git clone git@github.com:mikrostew/dotfiles.git
 $ cd dotfiles/
 $ git remote rm origin
@@ -206,14 +208,14 @@ $ git remote rm origin
 
 Ok so far, same as the other one. Now I have to specify all of the files names, twice:
 
-```
+```bash
 $ git filter-branch --index-filter 'git read-tree --empty; git reset $GIT_COMMIT -- .bash_repo_status bash_git_status.sh' -- --all -- .bash_repo_status bash_git_status.sh
 Rewrite 29b90ebfe58fb03ed221bdd6ef0ecbb75f1726d7 (1/70) (0 seconds passed, remaining 0 predicted)    Unstaged changes after reset:
 D    bash_git_status.sh
 Rewrite 4229589c0d436a94c0877a3048abca50132c090d (2/70) (0 seconds passed, remaining 0 predicted)    Unstaged changes after reset:
 D    bash_git_status.sh
 
-(lots more output here…)
+# (lots more output here…)
 
 Rewrite 84fe19009ee2c0ee3ab47f59858f950166f2960d (67/70) (5 seconds passed, remaining 0 predicted)    Unstaged changes after reset:
 D    .bash_repo_status

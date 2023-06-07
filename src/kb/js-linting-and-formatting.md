@@ -2,6 +2,8 @@
 title: JavaScript Linting and Formatting
 description: Because I always forget how to set this up, and it changes with every major version bump
 layout: base-page
+extraCSS:
+ - code-blocks
 
 ---
 
@@ -34,7 +36,7 @@ Anyway, putting that all together, for my website as an example
 Install eslint
 (even tho I'm using yarn, this is the way to run this)
 
-```
+```bash
 $ npm init @eslint/config
 ✔ How would you like to use ESLint? · problems
 ✔ What type of modules does your project use? · esm
@@ -63,7 +65,7 @@ Successfully created .eslintrc.js file in /Users/mikrostew/src/gh/automatic-owl
 
 Then install prettier
 
-```
+```bash
 $ yarn add --dev --exact prettier
 ➤ YN0000: ┌ Resolution step
 ➤ YN0000: └ Completed in 0s 304ms
@@ -75,7 +77,7 @@ $ yarn add --dev --exact prettier
 ➤ YN0000: Done in 4s 165ms
 ```
 
-```
+```bash
 $ echo {}> .prettierrc.json
 
 $ cp .gitignore .prettierignore
@@ -84,7 +86,7 @@ $ cp .gitignore .prettierignore
 
 Then configure them to play nicely together
 
-```
+```bash
 $ yarn add --dev eslint-config-prettier
 ➤ YN0000: ┌ Resolution step
 ➤ YN0000: └ Completed in 0s 284ms
@@ -99,7 +101,7 @@ $ yarn add --dev eslint-config-prettier
 
 And add prettier to the `.eslintrc.js` file so it looks like so
 
-```
+```javascript
 module.exports = {
     "env": {
         "browser": true,
@@ -138,7 +140,7 @@ I use ALE: <https://github.com/dense-analysis/ale>
 
 so this should work I hope, in my `.vimrc`
 
-```
+```vimscript
 let g:ale_fixers = {
 \   'javascript': ['eslint', 'prettier'],
 \   'typescript': ['eslint', 'prettier'],
@@ -149,10 +151,6 @@ let g:ale_fix_on_save = 1
 
 and that's it? ¯&bsol;\_(ツ)\_/¯
 
-all of this was initially done in this commit:
+All of this was initially done in [this commit](https://github.com/mikrostew/automatic-owl/commit/183f56444167ff910656357402f46743ba6fede9).
 
-<https://github.com/mikrostew/automatic-owl/commit/183f56444167ff910656357402f46743ba6fede9>
-
-and then I fixed some prettier config here (prefer single quotes):
-
-<https://github.com/mikrostew/automatic-owl/commit/b5f2741be994129ac2bab4608f7297e41ab7269d>
+Then I fixed some prettier config [here, to prefer single quotes](https://github.com/mikrostew/automatic-owl/commit/b5f2741be994129ac2bab4608f7297e41ab7269d).

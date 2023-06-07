@@ -3,6 +3,7 @@
 title: Automatic Owl
 description: TODO
 scriptName: TODO
+extraCSS: []
 
 ---
 
@@ -11,8 +12,9 @@ scriptName: TODO
 <html lang="en">
 <head>
 {{ layout.meta(title, description, page.url) }}
-<!-- TODO: front matter option for extra CSS -->
-<link rel="stylesheet" type="text/css" href="/css/prism-atom-dark.css" />
+{% for cssName in extraCSS %}
+<link rel="stylesheet" type="text/css" href="/css/{{ cssName }}.css" />
+{% endfor %}
 <script type="text/javascript" src="/js/{{ scriptName }}" defer></script>
 </head>
 <body>

@@ -3,6 +3,8 @@ title: Github Copilot (TODO)
 description: Trying it out, seeing how that goes (TODO)
 layout: script
 scriptName: copilot.js
+extraCSS:
+ - code-blocks
 
 ---
 
