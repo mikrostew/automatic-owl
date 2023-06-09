@@ -159,3 +159,6 @@ pre[class*='language-'] {
   color: #8a8a8a !important;
   font-style: normal !important;
 }
+.replay {
+  margin-top: 1em;
+}
