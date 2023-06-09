@@ -145,15 +145,15 @@ More markdown nonsense in a bash script
 
 <span class="token comment js-type hidden"># don't do anything</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden"><span class="token builtin class-name">exit</span> <span class="token number">0</span>
-```
+&#96;&#96;&#96;
 Then, make it executable:
-```</span>
+&#96;&#96;&#96;</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden"><span class="token function">chmod</span> +x new-script.sh
-```
+&#96;&#96;&#96;
 Then, add it to your crontab:
-```</span>
+&#96;&#96;&#96;</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden"><span class="token function">crontab</span> -e
-```</span>
+&#96;&#96;&#96;</span>
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
 
@@ -165,12 +165,12 @@ The suggestion isn't quite right, and then you're giving me markdown?
 
 <span class="token comment js-type hidden"># combine elements using commas</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden"><span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">${some_things<span class="token punctuation">[</span>@<span class="token punctuation">]</span>}</span>"</span> <span class="token operator">|</span> <span class="token function">tr</span> <span class="token string">' '</span> <span class="token string">','</span></span>
-<span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">```</span>
+<span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">&#96;&#96;&#96;</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">Output:
-```</span>
+&#96;&#96;&#96;</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">$ ./new-script.sh</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">one,two,three four,five
-```</span>
+&#96;&#96;&#96;</span>
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
 
