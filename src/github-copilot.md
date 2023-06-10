@@ -122,24 +122,25 @@ You can play around with some variations of `DIR=` and `PATH=` in bash, and it w
 I will leave that as an exercise for the reader.
 
 
-### Common AI Pitfalls
+### Context
 
-==TODO: It needs context, else it will spit out training data==
+From the FAQ section of the [Copilot site](https://github.com/features/copilot/):
 
-Fancy pattern matching, but missing context and intent
- - Markdown in my bash scripts
- - Also, things that don't work, like array join with comma
+> [Copilot] is designed to generate the best code possible given the context it has access to, but it doesn’t test the code it suggests so the code may not always work, or even make sense. GitHub Copilot can only hold a very limited context[^limited-context],...
 
-For an empty script, this is probably what copilot has pulled from the most
+[^limited-context]: Maybe due to token limitations of its GPT system? Guess it depends on which model of [Codex](https://platform.openai.com/docs/models/codex) it is using, although it looks like Codex is now deprecated?!
 
-(example of why this doesn't really _know_ what you're trying to do)
+In general, the more context that Copilot has, the more helpful its suggestions will be (like other AI systems).
+But with limited context, it will show things from its training data.
+
+For instance, an empty bash script. The suggested comment is probably something it has pulled from a lot of files:
 
 <pre class="language-bash"><code class="language-bash"><span class="token shebang important js-type hidden">#!/usr/bin/env bash</span>
 <span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest hidden">This script is called by the systemd service</span></span>
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
 
-More markdown nonsense in a bash script
+With slightly more context, it still doesn't seem to recognize this as a shell script, and suggests markdown:
 
 <pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
 
@@ -157,7 +158,10 @@ Then, add it to your crontab:
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
 
-The suggestion isn't quite right, and then you're giving me markdown?
+With more context, and a comment for prompting, it initially gives a reasonable (although slightly wrong[^comma-combine]) answer.
+Then suggests more markdown right after that:
+
+[^comma-combine]: The output will actually be `"one,two,three,four,five"`, because it is replacing all spaces in the generated string.
 
 <pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
 
@@ -174,7 +178,7 @@ The suggestion isn't quite right, and then you're giving me markdown?
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
 
-If I change the comment slightly, then it gives me some correct code (and starts adding comments after to explain it, instead of markdown)
+With a slightly different comment, it suggests correct code, and then suggests comments after to explain the code (instead of markdown):
 
 <pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
 
@@ -182,7 +186,7 @@ If I change the comment slightly, then it gives me some correct code (and starts
 
 <span class="token comment js-type hidden"># combine array elements using commas</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden"><span class="token assign-left variable"><span class="token environment constant">IFS</span></span><span class="token operator">=</span>,</span>
-<span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden"><span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">${some_things<span class="token punctuation">[</span>*<span class="token punctuation">]</span>}</span>"</span></span>
+<span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden"><span class="token builtin class-name">echo</span> <span class="token string">"<span class="token variable">${some_things<span class="token punctuation">[</span>&#42;<span class="token punctuation">]</span>}</span>"</span></span>
 <span class="js-type hidden"></span><span class="token comment js-type copilot-suggest copilot-accept hidden"># one,two,three four,five</span>
 <span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest copilot-accept hidden">note that the third element has a space in it</span>
 <span class="token comment"><span class="js-type hidden"># </span><span class="js-type copilot-suggest copilot-accept hidden">but it's still treated as a single element</span>
@@ -190,6 +194,8 @@ If I change the comment slightly, then it gives me some correct code (and starts
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
 
+I find it hard to know what context is necessary to get Copilot to do the thing I want sometimes, so I don't bother fussing with comments trying to engineer the right prompt.
+It's not worth it.
 
 
 ### Funny Things
@@ -229,10 +235,6 @@ Like pair programming?
  - partner can introduce bugs, but can also be mentored, and the feedback loop is tight
  - copilot can improve, over time, on a much longer feedback loop, but until then keeps doing same things, same mistakes
 
-
-Security concerns (API key, dir, password, etc)
- - seems like it has some logic to not do dumb stuff there
- - (Not for paths tho)
 
 
 
