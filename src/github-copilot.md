@@ -13,10 +13,11 @@ I have been playing around with it for the last ~month, and feel somewhat confli
 
 [^copilot-x]: And Copilot X [was recently announced](https://github.com/features/preview/copilot-x), so I'm working with previous gen.
 
-{% note %}
-I captured some screen recordings when trying out Copilot, but didn't want to include multi-megabyte videos or gifs here. It was more fun to animate them using JS (similar to the animations on the Copilot site).
-{% endnote %}
+::: note
+I captured some screen recordings when trying out Copilot, but didn't want to include multi-megabyte videos or gifs here. It was more fun to animate them using JS[^animation] (similar to the animations on the Copilot site).
+:::
 
+[^animation]: You can see the JS I wrote [here](https://github.com/mikrostew/automatic-owl/blob/main/js/{{ scriptName }}). For the code blocks, I initially included the code between '&#96;&#96;&#96;' blocks in this file. I built the site, then copied the parsed code blocks from the output html back into this file, and added classes to indicate what & how to animate things.
 
 ### The Good
 

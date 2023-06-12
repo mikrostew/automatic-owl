@@ -1,4 +1,5 @@
 const markdownIt = require('markdown-it');
+const markdownItContainter = require('markdown-it-container');
 const markdownItFootnote = require('markdown-it-footnote');
 const markdownItMark = require('markdown-it-mark');
 const markdownItMathjax3 = require('markdown-it-mathjax3');
@@ -38,6 +39,7 @@ let mdOptions = {
 };
 
 const md = markdownIt(mdOptions)
+  .use(markdownItContainter, 'note')
   .use(markdownItMark)
   .use(markdownItFootnote)
   .use(markdownItMathjax3);
@@ -134,10 +136,6 @@ function milesByWeek(year, activities) {
   return weeks;
 }
 
-// paired shortcode to make notes
-const noteShortcode = (content) =>
-  `<div class="note">${md.render(content)}</div>`;
-
 // see https://www.11ty.dev/docs/config/
 module.exports = function (eleventyConfig) {
   eleventyConfig.addPassthroughCopy('src/favicon.ico');
@@ -161,7 +159,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addFilter('milesByWeek', milesByWeek);
 
   // custom shortcodes
-  eleventyConfig.addPairedShortcode('note', noteShortcode);
+  // (nothing yet)
 
   eleventyConfig.setLibrary('md', md);
 

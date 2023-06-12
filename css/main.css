@@ -18,16 +18,17 @@ p.subtitle {
 }
 
 .note {
-  border-top: 2px solid black;
-  margin-left: 1.5em;
-  padding: 0.5em 1em;
-  background-color: #e5e5e5;
+  border-top: 1px solid black;
+  border-bottom: 1px solid black;
+  margin-left: 50px;
+  padding: 0.5em 0;
   position: relative;
 }
 .note::before {
-  content: '\270E';
+  content: '\261E';
+  font-size: 2em;
   position: absolute;
-  left: -1.5em;
+  left: -50px;
   top: 0;
 }
 .note p {

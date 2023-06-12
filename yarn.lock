@@ -698,6 +698,7 @@ __metadata:
     eslint: latest
     eslint-config-prettier: ^8.6.0
     markdown-it: ^13.0.1
+    markdown-it-container: ^3.0.0
     markdown-it-footnote: ^3.0.3
     markdown-it-mark: ^3.0.1
     markdown-it-mathjax3: ^4.3.2
@@ -2810,6 +2811,13 @@ __metadata:
     socks-proxy-agent: ^7.0.0
     ssri: ^9.0.0
   checksum: 2332eb9a8ec96f1ffeeea56ccefabcb4193693597b132cd110734d50f2928842e22b84cfa1508e921b8385cdfd06dda9ad68645fed62b50fff629a580f5fb72c
+  languageName: node
+  linkType: hard
+
+"markdown-it-container@npm:^3.0.0":
+  version: 3.0.0
+  resolution: "markdown-it-container@npm:3.0.0"
+  checksum: 8638a2f7587afe0c7c725558599d541fac46f8578b7ba2a7d305d87db8549d07edfb89c59147d0d17ffa189c8d39eff3f16a80613ec7aaf92af8ead713292693
   languageName: node
   linkType: hard
 
