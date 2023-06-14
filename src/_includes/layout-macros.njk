@@ -38,8 +38,8 @@
 
 {% macro footer(pagePath, numRevisions, lastUpdated) %}
 <footer>
-<hr>
+<hr class="footer-sep">
 <p>History: <a href="https://github.com/mikrostew/automatic-owl/commits/main/{{ pagePath }}" title="See the history of this page on GitHub">{{ numRevisions }} revision{% if numRevisions > 1 %}s{% endif %}</a>, last updated {{ lastUpdated | timestampToDateStr }}</p>
-<p>Current: <a href="https://github.com/mikrostew/automatic-owl/blob/main/{{ pagePath }}">View this page on GitHub</a></p>
+<p>Source: <a href="https://github.com/mikrostew/automatic-owl/blob/main/{{ pagePath }}">View this page on GitHub</a></p>
 </footer>
 {% endmacro %}

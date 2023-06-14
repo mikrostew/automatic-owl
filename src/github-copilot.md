@@ -1,6 +1,6 @@
 ---
-title: Pairing with Copilot
-description: Flying the friendly skies with my AI sidekick
+title: Copilot Check Ride
+description: Flying the friendly editor skies with my "AI pair programmer"
 layout: script
 scriptName: copilot.js
 extraCSS:
@@ -9,24 +9,25 @@ extraCSS:
 ---
 
 I recently got access to use [GitHub Copilot](https://github.com/features/copilot/), which has been [GA since June 2022](https://github.blog/2022-06-21-github-copilot-is-generally-available-to-all-developers/)[^copilot-x].
-I have been playing around with it for the last ~month, and feel somewhat conflicted about it at this point.
+I've been using it for the last two months, and found it to be helpful, in a limited way.
 
-[^copilot-x]: And Copilot X [was recently announced](https://github.com/features/preview/copilot-x), so I'm working with previous gen.
+[^copilot-x]: Copilot X preview [was recently announced](https://github.com/features/preview/copilot-x), so I'm already behind the curve.
 
 ::: note
-I captured some screen recordings when trying out Copilot, but didn't want to include multi-megabyte videos or gifs here. It was more fun to animate them using JS[^animation] (similar to the animations on the Copilot site).
+I captured some screen recordings when trying out Copilot, but didn't want to include a bunch of multi-megabyte videos or gifs on this page.
+I reproduced them here as animations[^animation] (similar to the Copilot site), which was more fun anyway.
 :::
 
-[^animation]: You can see the JS I wrote [here](https://github.com/mikrostew/automatic-owl/blob/main/js/{{ scriptName }}). For the code blocks, I initially included the code between '&#96;&#96;&#96;' blocks in this file. I built the site, then copied the parsed code blocks from the output html back into this file, and added classes to indicate what & how to animate things.
+[^animation]: You can see the JavaScript for this page [here](https://github.com/mikrostew/automatic-owl/blob/main/js/{{ scriptName }}). For the code blocks, I initially included the code samples between &#96;&#96;&#96; blocks in this file. After building the site locally, I copied the [highlighted code blocks](https://www.11ty.dev/docs/plugins/syntaxhighlight/) from the output html back into this file, and added classes to indicate what and how to animate things.
 
 ### The Good
 
-Copilot can suggest comments, lines, and even whole functions.
-The times that it feels most useful to me — and doesn't interrupt my flow — is when it suggests the thing that I was going to type anyway.
-So I don't have to think much about it, I can accept the suggestion and keep going.
-It's saving me keystrokes, making the process of dictating code from my brain to the screen a bit faster.
+Copilot can suggest comments, lines, and even entire functions and classes.
+The times that I have found it most useful are when it suggests the thing that I was going to type anyway.
+I can accept the suggestion and keep going, without disrupting my [flow](https://en.wikipedia.org/wiki/Flow_(psychology)).
+It saves me keystrokes, speeding up the process of dictating code from my brain to the screen.
 
-Typically that could be boilerplate-type code, or repetitive things that I would normally have to copy-paste-modify.
+Typically that has been boilerplate-type code, or repetitive things that I would normally have to copy-paste-modify.
 It can even figure out fields and types from the context of the surrounding code, like when I was parsing the output of [`tokei`](https://github.com/XAMPPRocky/tokei) to count lines of code for some files:
 
 <pre class="language-typescript"><code class="language-typescript"><span class="token comment">// (lots of context snipped)</span>
@@ -44,13 +45,13 @@ Super helpful. What would normally require more typing (even with tab completion
 
 ### The Not As Good
 
-Anything it suggests that is not "what I was planning to type" requires me to switch context from _creating_ code to _reviewing_ code, which totally derails my flow.
-I have to reason about what it is suggesting, to decide if it does what I want, or has bugs, or is even correct.
-Much like copy-pasting from stack overflow, the code could be subtly wrong, or out-of-date, etc.
+Anything it suggests that is significantly different from "what I was planning to type" requires me to switch context from _creating_ code to _reviewing_ code, which totally derails my flow.
+I have to reason about the suggestion, to decide if it does what I want, or has bugs, or is even correct.
+Much like [copy-pasting from Stack Overflow](https://stackoverflow.blog/2021/03/31/the-key-copy-paste/), the code could be subtly wrong, or out-of-date, or slow, etc.
 
 For example, the code suggestion that is _still_ featured on the main page of the Copilot site [has security issues](https://jakearchibald.com/2021/encoding-data-for-post-requests/).
 I tried to reproduce that suggestion using the code snippet there, and it suggested...nothing.
-But when I changed `'fetch-h2'` to `'node-fetch'`, it suggested some slightly different code:
+When I changed `'fetch-h2'` to `'node-fetch'`, it suggested some slightly different code:
 
 <pre class="language-typescript"><code class="language-typescript"><span class="token hashbang comment">#!/usr/bin/env ts-node</span>
 
@@ -67,19 +68,21 @@ But when I changed `'fetch-h2'` to `'node-fetch'`, it suggested some slightly di
 <span class="token punctuation">}</span></span>
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
-But this code is just _wrong_. The [text-processing API uses POST](http://text-processing.com/docs/sentiment.html), not GET, so this doesn't work.
+This code is just _wrong_. The [text-processing API uses POST](http://text-processing.com/docs/sentiment.html), not GET, so this doesn't work.
 
 At this point, if Copilot is suggesting anything longer than a line, I don't bother trying to grok it.
-It's too much of a disruption.
+It's too much of a disruption[^newer-dev].
+
+[^newer-dev]: I can _almost_ see a case for generating whole functions and such for someone who is newer to software development (I've been doing this for some years now). They could write a comment to prompt Copilot about what they want to do, and it could generate code to do that. But the problem is that Copilot doesn't guarantee the generated code will work or even make sense (as I quote in the "Context" section above), so it might actually leave them more confused than when they started. That could be good debugging experience, but I would recommend that they look on Stack Overflow instead. When _that_ code doesn't work, they can yell at a person instead of a computer. Much more cathartic.
 
 
-### The Bad: Legal Concerns
+### Legal Concerns
 
 Apparently, Copilot will emit whole chunks of [OSS code that is licensed under GPL, LGPL, etc](https://www.reversinglabs.com/blog/devs-dont-rely-on-github-copilot-legal-risk-is-real).
 I am not a lawyer, and I don't pretend to know how things like [attribution and derivative works](https://twitter.com/eevee/status/1410037309848752128) apply to this.
-If Copilot is synthesizing code based on multiple different projects, is attribution necessary? And if so, how would that even work?
+If Copilot is synthesizing code based on multiple different projects, is attribution necessary? If so, how would that even work?
 
-I found that it will suggest the contents of the GPLv3 if I start typing that, leading me to believe that it is definitely trained on GPL code (which specifically covers derivative works):
+I found that it will suggest the contents of the GPLv3 if I start typing that, leading me to believe that it is trained on GPL code (which specifically covers derivative works):
 
 <pre class="language-text"><code class="language-text"><span class="js-type hidden">GNU GENERAL PUBLIC LICENCSE</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">Version 3, 29 June 2007</span>
@@ -94,7 +97,8 @@ I found that it will suggest the contents of the GPLv3 if I start typing that, l
 When I'm using Copilot, and I accept one of its suggestions, do I now have copyright of that code?
 Am I liable for any copyright issues if that code is somehow infringing?
 
-I don't want that potential liability, so I have disabled Copilot for my OSS work.
+I don't want that potential liability, so I am only using it to more easily complete things I was going to type anyway.
+I am not including big blocks of code with questionable provenance.
 
 
 ### Security Concerns
@@ -119,7 +123,7 @@ I am happy to find that it does know the best password to suggest[^hunter2]:
 <span class="token assign-left variable js-type hidden">PASS</span><span class="token operator js-type hidden">=</span><span class="token string js-type hidden">"h</span><span class="js-type copilot-suggest hidden">unter2"</span>
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
-You can play around with some variations of `DIR=` and `PATH=` in bash, and it will show paths from its training data.
+You can play around with variations of `DIR=` and `PATH=` in bash, and Copilot will suggest some interesting paths.
 I will leave that as an exercise for the reader.
 
 
@@ -129,10 +133,10 @@ From the FAQ section of the [Copilot site](https://github.com/features/copilot/)
 
 > [Copilot] is designed to generate the best code possible given the context it has access to, but it doesn’t test the code it suggests so the code may not always work, or even make sense. GitHub Copilot can only hold a very limited context[^limited-context],...
 
-[^limited-context]: Maybe due to token limitations of its GPT system? Guess it depends on which model of [Codex](https://platform.openai.com/docs/models/codex) it is using, although it looks like Codex is now deprecated?!
+[^limited-context]: Maybe due to token limitations of its GPT system? Guess it depends on which model of [Codex](https://platform.openai.com/docs/guides/code) it is using, although it looks like Codex is now deprecated?!
 
-In general, the more context that Copilot has, the more helpful its suggestions will be (like other AI systems).
-But with limited context, it will show things from its training data.
+Like other AI systems, the more context that Copilot has, the more helpful its suggestions will be.
+With limited context, it will show things from its [training data](https://en.wikipedia.org/wiki/Training,_validation,_and_test_data_sets), or things that don't make sense.
 
 For instance, an empty bash script. The suggested comment is probably something it has pulled from a lot of files:
 
@@ -146,15 +150,9 @@ With slightly more context, it still doesn't seem to recognize this as a shell s
 <pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
 
 <span class="token comment js-type hidden"># don't do anything</span>
-<span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden"><span class="token builtin class-name">exit</span> <span class="token number">0</span>
+<span class="js-type hidden"></span><span class="js-type copilot-suggest hidden"><span class="token builtin class-name">exit</span> <span class="token number">0</span>
 &#96;&#96;&#96;
 Then, make it executable:
-&#96;&#96;&#96;</span>
-<span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden"><span class="token function">chmod</span> +x new-script.sh
-&#96;&#96;&#96;
-Then, add it to your crontab:
-&#96;&#96;&#96;</span>
-<span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden"><span class="token function">crontab</span> -e
 &#96;&#96;&#96;</span>
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
@@ -179,7 +177,7 @@ Then suggests more markdown right after that:
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
 
-With a slightly different comment, it suggests correct code, and then suggests comments after to explain the code (instead of markdown):
+With a slightly different comment, it suggests correct code, and then suggests comments after to explain the code (no markdown this time):
 
 <pre class="language-bash"><code class="language-bash"><span class="token shebang important">#!/usr/bin/env bash</span>
 
@@ -195,17 +193,29 @@ With a slightly different comment, it suggests correct code, and then suggests c
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
 
-I find it hard to know what context is necessary to get Copilot to do the thing I want sometimes, so I don't bother fussing with comments trying to engineer the right prompt.
-It's not worth it.
+I find it hard to know what context is necessary to get Copilot to do the thing I want sometimes, so I don't bother fussing with comments trying to [engineer the right prompt](https://hbr.org/2023/06/ai-prompt-engineering-isnt-the-future).
 
 
-### Funny Things
+### Pair Programming?
 
-Funny things
- - comments
+The headline of the Copilot site is "Your AI pair programmer"[^marketing].
+If you stand back far enough and squint, it might look something like that.
+But that breaks down if you think about the details.
 
+[^marketing]: Yes, of course it's marketing, but I want to be pendantic dang it!
 
-I don't need your judgement, Copilot
+I've done pair programming a few times, and each time it was a mentor/mentee kind of dynamic.
+I was pairing to learn from someone else, or to teach someone else.
+Not to say that is the only way — some people pair to spread knowledge, or work through a problem together, or onboard, etc.
+
+Copilot suggesting code that you might want to use is not the same as pair programming.
+It's not helping with the design of the code, or working through the problem with you, or pointing out issues[^copilot-gaps].
+Copilot is generative, not analytical.
+It does seem to "learn" as more context is added to the file, but when starting a new file or project it is also starting from scratch, with no context carried over from the previous session.
+
+[^copilot-gaps]: These seem to be gaps that [Copilot X](https://github.com/features/preview/copilot-x) is trying to solve? It has a chat interface where you can paste in code and get explanations, or find issues, maybe ask it how to design things. Would be interesting to try that out...
+
+But like some developers I know, it can deliver a good burn:
 
 <pre class="language-js"><code class="language-js"><span class="token punctuation">(</span><span class="token keyword">async</span> <span class="token keyword">function</span><span class="token punctuation">(</span><span class="token punctuation">)</span> <span class="token punctuation">{</span>
   <span class="token comment">// parse options</span>
@@ -216,45 +226,18 @@ I don't need your judgement, Copilot
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
 
+### Conclusion
 
+The [GA announcement for Copilot](https://github.blog/2022-06-21-github-copilot-is-generally-available-to-all-developers/) positions it as a fundamental change to software development:
 
-TODO (from the GA announcement)
+> Just like the rise of compilers and open source, we believe AI-assisted coding will fundamentally change the nature of software development, giving developers a new tool to write code easier and faster so they can be happier in their lives[^dev-happy].
 
-> we believe AI-assisted coding will fundamentally change the nature of software development, giving developers a new tool to write code easier and faster so they can be happier in their lives[^dev-happy].
+[^dev-happy]: They should know that developers are never happy.
 
-[^dev-happy]: Not sure what they're on about here, developers are never happy.
+I don't see that as the case, at least not yet.
 
+For me, it doesn't make sense to use it for anything more than completing single lines of code.
+Big code blocks are too disruptive to my workflow, and are likely wrong, or non-sensical, or copyrighted.
 
-TODO: code is fungible?
-
-TODO: why do I code?
-
-
-
-Like pair programming?
- - When pairing, the other person often points out issues with your code, copilot is only generative, not analytical
- - partner can introduce bugs, but can also be mentored, and the feedback loop is tight
- - copilot can improve, over time, on a much longer feedback loop, but until then keeps doing same things, same mistakes
-
-
-
-
-My coding "voice", or style
- - More than one way to do things
- - I've done hundreds of interviews, and no one has solved the same problem the same way
- - By the time I have designed how things will work, I know what the code is going to be, but copilot doesn't. It wants to be helpful, but just gets in the way
-
-
-Conclusion
- - Stack overflow in your editor
- - "prompt engineering" - giving it a "better" prompt to get a better answer (as if to make it "understand" more clearly), vs. a more specific prompt so it can better pattern match against its training data?
-     - (see the comma combine 1 & 2 movs)
- - Copilot doesn't know how to say "I don't know" - it will always give you something, even if it doesn't make sense
-     - People do this too
-
-
-
-
-
-
-
+I see Copilot as a better form of auto-complete, and that's how I will continue to use it.
+It's helpful, but not a game-changer.

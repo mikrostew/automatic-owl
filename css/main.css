@@ -18,21 +18,33 @@ p.subtitle {
 }
 
 .note {
-  border-top: 1px solid black;
-  border-bottom: 1px solid black;
   margin-left: 50px;
   padding: 0.5em 0;
   position: relative;
+  font-size: 0.9em;
 }
 .note::before {
   content: '\261E';
-  font-size: 2em;
+  font-size: 2.5em;
   position: absolute;
   left: -50px;
   top: 0;
 }
 .note p {
   margin: 0;
+}
+
+blockquote {
+  position: relative;
+  margin-left: 50px;
+  font-size: 0.9em;
+}
+blockquote::before {
+  content: '\201C';
+  font-size: 3em;
+  position: absolute;
+  left: -50px;
+  top: 0;
 }
 
 .two-column-reflow {
@@ -84,6 +96,14 @@ table {
 table thead th {
   border: 1px solid black;
   border-width: 0 0 2px;
+}
+
+hr.footnotes-sep {
+  margin: 3em 0;
+}
+
+hr.footer-sep {
+  margin: 3em 0;
 }
 
 /* 7 * 10 + 30 = 100% */

@@ -1,8 +1,8 @@
-// some delays for things
+// didn't measure any of these, but they seem about right
 const DELAY_INITIAL = 100;
-const DELAY_TYPING = 25;
+const DELAY_TYPING = 20;
 const DELAY_SUGGEST = 500;
-const DELAY_ACCEPT = 1000;
+const DELAY_ACCEPT = 800;
 const DELAY_REJECT = 0;
 // special delay indicating to stop the animation
 const DELAY_DONE = -1;
@@ -17,10 +17,9 @@ function elementIsFullyVisible(element) {
   );
 }
 
-// find all the code blocks
 const codeBlocks = document.querySelectorAll('pre > code');
 
-// then for each code block find the elements to animate
+// for each code block, setup the animation steps for each element
 for (const block of codeBlocks) {
   const animationSteps = [];
   let animationStep = 0;
@@ -41,7 +40,7 @@ for (const block of codeBlocks) {
     if (element.classList.contains('copilot-suggest')) {
       animationSteps.push({
         run: () => {
-          /* do nothing */
+          /* do nothing, simulate me reviewing the suggested code */
         },
         delay: DELAY_SUGGEST,
       });
@@ -49,6 +48,7 @@ for (const block of codeBlocks) {
       if (element.classList.contains('copilot-accept')) {
         elementsToSuggestForReplay.push(element);
         // show the suggestion, accept it, then keep going
+        // (slight problem here where it shifts by the cursor width when accepted, but ¯\_(ツ)_/¯)
         animationSteps.push({
           run: () => {
             element.classList.remove('hidden');
@@ -147,7 +147,6 @@ for (const block of codeBlocks) {
   // how to replay the animation
   replayButton.addEventListener('click', () => {
     // hide the button so it can't be clicked again
-    // (I should probably remove the event listener, in case the button is focused, whatever)
     replayButton.classList.add('hidden');
     // reset classes for animated elements
     for (const element of elementsToHideForReplay) {
