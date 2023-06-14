@@ -79,10 +79,7 @@ It's too much of a disruption[^newer-dev].
 ### Legal Concerns
 
 Apparently, Copilot will emit whole chunks of [OSS code that is licensed under GPL, LGPL, etc](https://www.reversinglabs.com/blog/devs-dont-rely-on-github-copilot-legal-risk-is-real).
-I am not a lawyer, and I don't pretend to know how things like [attribution and derivative works](https://twitter.com/eevee/status/1410037309848752128) apply to this.
-If Copilot is synthesizing code based on multiple different projects, is attribution necessary? If so, how would that even work?
-
-I found that it will suggest the contents of the GPLv3 if I start typing that, leading me to believe that it is trained on GPL code (which specifically covers derivative works):
+I found that it will suggest the contents of the GPLv3 if I start typing that, which would indicate that it is trained on GPL code:
 
 <pre class="language-text"><code class="language-text"><span class="js-type hidden">GNU GENERAL PUBLIC LICENCSE</span>
 <span class="js-type hidden"></span><span class="js-type copilot-suggest copilot-accept hidden">Version 3, 29 June 2007</span>
@@ -94,6 +91,8 @@ I found that it will suggest the contents of the GPLv3 if I start typing that, l
 <span class="js-type hidden"></span><span class="js-type copilot-suggest hidden">Preamble</span>
 <button class="replay hidden">&#8635; Replay</button></code></pre>
 
+I am not a lawyer, and I don't pretend to know how things like [attribution and derivative works](https://twitter.com/eevee/status/1410037309848752128) apply to this.
+If Copilot is synthesizing code based on multiple different projects, is attribution necessary? If so, how would that even work?
 When I'm using Copilot, and I accept one of its suggestions, do I now have copyright of that code?
 Am I liable for any copyright issues if that code is somehow infringing?
 
@@ -200,18 +199,12 @@ I find it hard to know what context is necessary to get Copilot to do the thing 
 
 The headline of the Copilot site is "Your AI pair programmer"[^marketing].
 If you stand back far enough and squint, it might look something like that.
-But that breaks down if you think about the details.
-
-[^marketing]: Yes, of course it's marketing, but I want to be pendantic dang it!
-
-I've done pair programming a few times, and each time it was a mentor/mentee kind of dynamic.
-I was pairing to learn from someone else, or to teach someone else.
-Not to say that is the only way — some people pair to spread knowledge, or work through a problem together, or onboard, etc.
-
-Copilot suggesting code that you might want to use is not the same as pair programming.
+But Copilot suggesting code that you might want to use is not the same as pair programming.
 It's not helping with the design of the code, or working through the problem with you, or pointing out issues[^copilot-gaps].
 Copilot is generative, not analytical.
 It does seem to "learn" as more context is added to the file, but when starting a new file or project it is also starting from scratch, with no context carried over from the previous session.
+
+[^marketing]: Yes, of course it's marketing, but I want to be pendantic dang it!
 
 [^copilot-gaps]: These seem to be gaps that [Copilot X](https://github.com/features/preview/copilot-x) is trying to solve? It has a chat interface where you can paste in code and get explanations, or find issues, maybe ask it how to design things. Would be interesting to try that out...
 
