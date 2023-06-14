@@ -108,7 +108,8 @@ async function updateFileRevisions(fileRevisions) {
       // if it's not in there, add it
       if (
         !dataFileContents.revisions.some(
-          (r) => r.timestamp === revisionInfo.timestamp
+          (r) =>
+            r.timestamp === revisionInfo.timestamp && r.id === revisionInfo.id
         )
       ) {
         dataFileContents.revisions.push(revisionInfo);
