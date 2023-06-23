@@ -1,0 +1,45 @@
+---
+# Should be overridden by the page
+
+title: Automatic Owl
+description: TODO
+
+# Optional
+
+## list of JS filenames (no '.js' extension)
+jsFiles: []
+
+## list of CSS filenames (no '.css' extension)
+## (these are included in addition to the main CSS file)
+cssFiles: []
+
+---
+{% import "layout-macros.njk" as layout %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{{ layout.meta(title, description, page.url) }}
+{% for cssFile in cssFiles %}
+<link rel="stylesheet" type="text/css" href="/css/{{ cssFile }}.css" />
+{% endfor %}
+{% for jsFile in jsFiles %}
+<script type="text/javascript" src="/js/{{ jsFile }}.js" defer></script>
+{% endfor %}
+</head>
+<body>
+<article class="main">
+{{ layout.header() }}
+{{ layout.title(title, description) }}
+{% if jsFiles.length > 0 %}
+<noscript>
+<style type="text/css">.error { border: 1px solid red; }</style>
+<p class="error">This page doesn't work if JavaScript is disabled! Please enable JavaScript. You can see the script that would be run <a href="https://github.com/mikrostew/automatic-owl/blob/main/js/{{ scriptName }}">here</a>.</p>
+</noscript>
+{% endif %}
+<section>
+{{ content | safe }}
+</section>
+{{ layout.footer(page.inputPath, revisions.length, lastUpdated) }}
+</article>
+</body>
+</html>
