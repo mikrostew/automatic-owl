@@ -47,9 +47,9 @@ const md = markdownIt(mdOptions)
 // add a "Notes" header to the footnotes
 // (adapted from https://github.com/markdown-it/markdown-it-footnote#customize)
 md.renderer.rules.footnote_block_open = () =>
+  '<section class="footnotes">\n' +
   '<hr class="footnotes-sep">\n' +
   '<h4>Notes</h4>\n' +
-  '<section class="footnotes">\n' +
   '<ol class="footnotes-list">\n';
 
 // filters
