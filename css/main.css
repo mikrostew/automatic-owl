@@ -98,6 +98,10 @@ table thead th {
   border-width: 0 0 2px;
 }
 
+section.linked-to {
+  margin: 3em 0;
+}
+
 hr.footnotes-sep {
   margin: 3em 0;
 }

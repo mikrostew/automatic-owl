@@ -1,10 +1,14 @@
 ---
 title: Copilot Check Ride
 description: Flying the friendly editor skies with my "AI pair programmer"
-layout: script
-scriptName: copilot.js
-extraCSS:
+layout: page
+jsFiles:
+ - copilot
+cssFiles:
  - code-blocks
+linkedTo:
+ - url: https://www.linkedin.com/feed/update/urn:li:activity:7075213742157799424/
+   text: LinkedIn
 
 ---
 
@@ -18,7 +22,7 @@ I captured some screen recordings when trying out Copilot, but didn't want to in
 I reproduced them here as animations[^animation] (similar to the Copilot site), which was more fun anyway.
 :::
 
-[^animation]: You can see the JavaScript for this page [here](https://github.com/mikrostew/automatic-owl/blob/main/js/{{ scriptName }}). For the code blocks, I initially included the code samples between &#96;&#96;&#96; blocks in this file. After building the site locally, I copied the [highlighted code blocks](https://www.11ty.dev/docs/plugins/syntaxhighlight/) from the output html back into this file, and added classes to indicate what and how to animate things.
+[^animation]: You can see the JavaScript for this page [here](https://github.com/mikrostew/automatic-owl/blob/main/js/copilot.js). For the code blocks, I initially included the code samples between &#96;&#96;&#96; blocks in this file. After building the site locally, I copied the [highlighted code blocks](https://www.11ty.dev/docs/plugins/syntaxhighlight/) from the output html back into this file, and added classes to indicate what and how to animate things.
 
 ### The Good
 

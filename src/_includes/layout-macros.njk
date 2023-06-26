@@ -36,6 +36,19 @@
 <p class="subtitle">{{ description }}</p>
 {% endmacro %}
 
+{% macro linksToThis(linkedTo) %}
+{% if linkedTo.length > 0 %}
+<section class="linked-to">
+{%- set links = [] %}
+{%- for linkInfo in linkedTo %}
+{%- set link %}<a href="{{ linkInfo.url }}">{{ linkInfo.text }}</a>{% endset %}
+{%- set links = links.concat(link) %}
+{%- endfor %}
+<em>(I linked to this page from {{ links | join(", ") | safe }})</em>
+</section>
+{% endif %}
+{% endmacro %}
+
 {% macro footer(pagePath, numRevisions, lastUpdated) %}
 <footer>
 <hr class="footer-sep">
