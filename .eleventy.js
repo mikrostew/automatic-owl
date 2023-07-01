@@ -6,14 +6,34 @@ const markdownItMathjax3 = require('markdown-it-mathjax3');
 const pluginLinkto = require('eleventy-plugin-link_to');
 const syntaxHighlight = require('@11ty/eleventy-plugin-syntaxhighlight');
 
+// collections, for displaying on home page
+
 function hasUpdates(item) {
   return item.data?.lastUpdated !== undefined;
 }
+function wasLinkedTo(item) {
+  return item.data.linkedTo?.length > 0;
+}
+function notLinkedTo(item) {
+  return !wasLinkedTo(item);
+}
+function sortDescending(a, b) {
+  return b.data.lastUpdated - a.data.lastUpdated;
+}
 
+function linkedThings(collectionApi) {
+  const recentlyLinked = collectionApi
+    .getAll()
+    .filter(wasLinkedTo)
+    .sort(sortDescending);
+  return recentlyLinked;
+}
 function updatedThings(collectionApi) {
-  const recentlyUpdated = collectionApi.getAll().filter(hasUpdates);
-  // sort descending
-  recentlyUpdated.sort((a, b) => b.data.lastUpdated - a.data.lastUpdated);
+  const recentlyUpdated = collectionApi
+    .getAll()
+    .filter(hasUpdates)
+    .filter(notLinkedTo)
+    .sort(sortDescending);
   return recentlyUpdated;
 }
 
@@ -151,6 +171,7 @@ module.exports = function (eleventyConfig) {
   eleventyConfig.addPlugin(syntaxHighlight);
 
   // collections to display on the home page
+  eleventyConfig.addCollection('linkedTo', linkedThings);
   eleventyConfig.addCollection('updated', updatedThings);
 
   // custom filters for templates

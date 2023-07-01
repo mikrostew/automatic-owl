@@ -9,10 +9,18 @@ layout: base-page
 
 <p>Everything I've added to the site so far is listed on this page.</p>
 
-<h2>Recently Updated</h2>
+<h3>Linked To</h3>
+<p>Things I thought were interesting enough to post elsewhere.</p>
 
-{% for item in collections.updated %}
-  <p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.lastUpdated | timestampToDateStr }})</p>
-{% endfor %}
+{%- for item in collections.linkedTo %}
+<p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.lastUpdated | timestampToDateStr }})</p>
+{%- endfor %}
+
+<h3>Everything Else</h3>
+<p>Ordered by when they were last updated.</p>
+
+{%- for item in collections.updated %}
+<p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.lastUpdated | timestampToDateStr }})</p>
+{%- endfor %}
 
 </section>
