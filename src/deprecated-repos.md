@@ -42,3 +42,5 @@ Archive the repository
 [dependent-task-runner](https://github.com/mikrostew/dependent-task-runner): Something I started hacking at to implement a graph algorithm. I may revisit this again.
 
 [laminar](https://github.com/mikrostew/laminar): Never did anything with this, but I thought the name was clever.
+
+[cheat-sheets](https://github.com/mikrostew/cheat-sheets): Don't use or update these anymore.
