@@ -16,6 +16,13 @@ layout: base-page
 <p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.lastUpdated | timestampToDateStr }})</p>
 {%- endfor %}
 
+<h3>In Progress</h3>
+<p>Things I am still working on, as I have time and interest.</p>
+
+{%- for item in collections.wip %}
+<p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.lastUpdated | timestampToDateStr }})</p>
+{%- endfor %}
+
 <h3>Everything Else</h3>
 <p>Ordered by when they were last updated.</p>
 

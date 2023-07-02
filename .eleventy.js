@@ -17,6 +17,12 @@ function wasLinkedTo(item) {
 function notLinkedTo(item) {
   return !wasLinkedTo(item);
 }
+function isWIP(item) {
+  return item.data.wip === true;
+}
+function notWIP(item) {
+  return !isWIP(item);
+}
 function sortDescending(a, b) {
   return b.data.lastUpdated - a.data.lastUpdated;
 }
@@ -28,11 +34,19 @@ function linkedThings(collectionApi) {
     .sort(sortDescending);
   return recentlyLinked;
 }
+function wipThings(collectionApi) {
+  const recentlyLinked = collectionApi
+    .getAll()
+    .filter(isWIP)
+    .sort(sortDescending);
+  return recentlyLinked;
+}
 function updatedThings(collectionApi) {
   const recentlyUpdated = collectionApi
     .getAll()
     .filter(hasUpdates)
     .filter(notLinkedTo)
+    .filter(notWIP)
     .sort(sortDescending);
   return recentlyUpdated;
 }
@@ -172,6 +186,7 @@ module.exports = function (eleventyConfig) {
 
   // collections to display on the home page
   eleventyConfig.addCollection('linkedTo', linkedThings);
+  eleventyConfig.addCollection('wip', wipThings);
   eleventyConfig.addCollection('updated', updatedThings);
 
   // custom filters for templates

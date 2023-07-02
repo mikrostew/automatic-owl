@@ -1,7 +1,8 @@
 ---
 title: Deprecated OSS Repos
 description: How I deprecate unmaintained OSS code, and which repos I've deprecated
-layout: base-page
+layout: page
+wip: true
 
 ---
 

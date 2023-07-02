@@ -84,6 +84,18 @@ blockquote::before {
   padding: 8px;
 }
 
+.wip {
+  color: gray;
+  border: 1px solid gray;
+  padding: 8px;
+}
+.wip::before {
+  display: block;
+  text-align: center;
+  content: '\1F6A7  \1F477  \1F3D7';
+  font-size: 1.5em;
+}
+
 /* so that images don't overflow their parent <p> container */
 img {
   max-width: 100%;

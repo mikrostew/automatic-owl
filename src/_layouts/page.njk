@@ -6,6 +6,9 @@ description: TODO
 
 # Optional
 
+# true if this is a work-in-progress
+wip: false
+
 # list of JS filenames (no '.js' extension)
 jsFiles: []
 
@@ -42,6 +45,13 @@ This page doesn't work if JavaScript is disabled! Please enable JavaScript. You 
 </ul>
 </div>
 </noscript>
+{% endif %}
+{% if wip %}
+<div class="wip">
+This page is a <b>work in progress</b>, a <b>draft</b>, a <b>sketch</b>.
+It is definitely incomplete, likely inaccurate, and possibly flat-out wrong.
+I plan to modify and update this over time, and if I completely change my mind about it I will (eventually) update this page to reflect that.
+</div>
 {% endif %}
 <section>
 {{ content | safe }}
