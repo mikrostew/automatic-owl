@@ -1,5 +1,37 @@
 {
   "activities": {
+    "6/29/2023": {
+      "date": "6/29/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/9359819268",
+      "time": "32:08",
+      "distance": "2.58 mi",
+      "elevation": "40 ft"
+    },
+    "6/13/2023": {
+      "date": "6/13/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/9257820641",
+      "time": "48:38",
+      "distance": "4.37 mi",
+      "elevation": "186 ft"
+    },
+    "5/30/2023": {
+      "date": "5/30/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/9169255375",
+      "time": "1:18:29",
+      "distance": "7.12 mi",
+      "elevation": "271 ft"
+    },
+    "5/26/2023": {
+      "date": "5/26/2023",
+      "kind": "Run",
+      "link": "https://www.strava.com/activities/9143974963",
+      "time": "1:00:09",
+      "distance": "5.48 mi",
+      "elevation": "229 ft"
+    },
     "5/18/2023": {
       "date": "5/18/2023",
       "kind": "Run",

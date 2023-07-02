@@ -1,9 +1,10 @@
 ---
 title: Running Once a Week
 description: Trying to run (or hike) once every week in 2023.
-layout: script
-scriptName: run-once-a-week.js
-
+layout: page
+wip: true
+jsFiles:
+ - run-once-a-week
 
 ---
 
@@ -26,8 +27,10 @@ scriptName: run-once-a-week.js
 ### May
 {{ calendar.monthRunTable(2023, 5, activities) }}
 
-### June
+### June[^june-weeks]
 {{ calendar.monthRunTable(2023, 6, activities) }}
+
+[^june-weeks]: Didn't run two weeks in June. First week, the whole family was sick, and then it was really smoky outside from the Canadian fires. The other week, we did a family trip and I didn't feel like running during that.
 
 ### July
 {{ calendar.monthRunTable(2023, 7, activities) }}
