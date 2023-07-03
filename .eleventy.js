@@ -72,8 +72,27 @@ let mdOptions = {
   typographer: true,
 };
 
-const md = markdownIt(mdOptions)
-  .use(markdownItContainter, 'note')
+const md = markdownIt(mdOptions);
+
+// how to render the 'details' container
+// (adapted from https://github.com/markdown-it/markdown-it-container#example)
+const renderDetails = {
+  // because this uses text after the opening marker
+  validate: (params) => params.trim().match(/^details\s+(.*)$/),
+  render: (tokens, idx) => {
+    const m = tokens[idx].info.trim().match(/^details\s+(.*)$/);
+    if (tokens[idx].nesting === 1) {
+      // opening tag
+      return `<details><summary>${md.utils.escapeHtml(m[1])}</summary>\n`;
+    } else {
+      // closing tag
+      return '</details>\n';
+    }
+  },
+};
+
+md.use(markdownItContainter, 'note')
+  .use(markdownItContainter, 'details', renderDetails)
   .use(markdownItMark)
   .use(markdownItFootnote)
   .use(markdownItMathjax3);

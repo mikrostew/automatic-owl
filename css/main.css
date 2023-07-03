@@ -87,6 +87,7 @@ blockquote::before {
 .wip {
   color: gray;
   border: 1px solid gray;
+  border-radius: 4px;
   padding: 8px;
 }
 .wip::before {
@@ -120,6 +121,20 @@ hr.footnotes-sep {
 
 hr.footer-sep {
   margin: 3em 0;
+}
+
+details {
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  padding: 0.5em 0.5em 0;
+}
+details[open] summary {
+  border-bottom: 1px solid #aaa;
+  margin-bottom: 0.5em;
+}
+summary {
+  margin: -0.5em -0.5em 0;
+  padding: 0.5em;
 }
 
 /* 7 * 10 + 30 = 100% */
