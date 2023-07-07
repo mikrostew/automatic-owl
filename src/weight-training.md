@@ -231,80 +231,84 @@ Group 3
 
 :::
 
-
 Results:
 - Bench press [estimated 1RM]({% link_to 'one-rep-max' %}): 95kg &rarr; 104kg
 - OHP estimated 1RM: 53kg &rarr; 67kg
 
 
-### ==TODO: start date== -- 3/24/2023
+### 1/9/2023 -- 3/24/2023
 
 Summary:
-- 3 days/week, full body-ish
-- Also [jogging one day a week]({% link_to 'run-once-a-week' %}) (Tuesday or Thursday)
+- 3 days/week (M/W/F), full body-ish
+- started [jogging one day a week]({% link_to 'run-once-a-week' %}) (Tuesday or Thursday)
 
 ::: details Workout Details
 
-Each workout starts with 4 min treadmill warmup (walk 1m30s, jog 1m30s, walk 1m)
+Didn't start with this plan exactly, took me a week or two to nail this down.
 
-### A: Monday
+Each workout starts with 4 min treadmill warmup (walk 1m30s, jog 1m30s, walk 1m).
 
-Group 1 (band work during bench warmup)
+### Monday
+
+Group 1
+* BB bench press - 3 x 6--8
 * Band pull aparts - 2 x 12
-* BB bench press - 3 x 6-8
 
-Group 2 (superset)
-* Military press - 3 x 10-12
-* Neutral grip Pullups - 3 x 6-8
+Group 2
+* Military press - 3 x 10--12
+* Neutral grip Pullups - 3 x 6--8
 
 Group 3 (superset)
-* JM press - 3 x 10-12
-* One arm DB rows - 3 x 10-12
+* JM press - 3 x 10--12
+* One arm DB rows - 3 x 10--12
 
 Reverse hypers - 2 x 15
 
-### B: Wednesday
+### Wednesday
 
 Hip Mobility - Leg Swings
 * Hamstrings
 * Adductors/Abductors
 
-Group 1 (band work during deadlift warmup)
+Group 1
 * Shoulder mobility with band - 2 x 6 ea arm
-* BB deadlift - 2 x 6-8
+* BB deadlift - 2 x 6--8
 
-Group 2 (superset)
-* BB push press - 3 x 6-8
-* Straight arm pulldowns - 3 x 10-12
+Group 2
+* BB push press - 3 x 6--8
+* Straight arm pulldowns - 3 x 10--12
 
-Group 3 (superset)
-* Seated close grip row - 3 x 10-12
-* Machine flys - 3 x 10-12
+Group 3
+* Seated close grip row - 3 x 10--12
+* Machine flys - 3 x 10--12
 
-Walking DB lunges - 2 x 10-12
+Walking DB lunges - 2 x 10--12
 
-### C: Friday
+### Friday
 
-Group 1 (band work during chest warmup)
+Group 1
 * Band pull aparts - 2 x 12
-* Chest press machine - 3 x 6-8
+* Chest press machine - 3 x 6--8
 
-Group 2 (superset)
-* Bent over BB rows - 3 x 10-12
-* DB press - 3 x 10-12
+Group 2
+* Bent over BB rows - 3 x 10--12
+* DB press - 3 x 10--12
 
-Group 3 (superset)
-* Incline DB press - 3 x 10-12
-* Bent over rear delt laterals - 3 x 10-15
+Group 3
+* Incline DB press - 3 x 10--12
+* Bent over rear delt laterals - 3 x 10--15
 
-Group 4 (superset)
-* DB split squats - 3 x 10-12
+Group 4
+* DB split squats - 3 x 10--12
 * Reverse hyper - 2 x 15
 
 :::
 
 Results:
-- ==TODO==
+- Bench press [estimated 1RM]({% link_to 'one-rep-max' %}): 76kg &rarr; 95kg
+- OHP estimated 1RM: 49kg &rarr; 53kg
+- Deadlift estimated 1RM: 132kg &rarr; 151kg
+- BB push press estimated 1RM: 55kg &rarr; 73kg
 
 
 [^juggernaut]: The [Juggernaut Method](https://www.jtsstrength.com/product/the-juggernaut-method-2-0/) uses block periodization to wave the weights and reps (good video by Alex Bromley [here](https://www.youtube.com/watch?v=S4zciARr6VE) on YouTube). I have a [spreadsheet](https://docs.google.com/spreadsheets/d/1PNb4qpkdaOsrGKtGahjG_ZePQ3rMH7mehV146f2vp4M/edit#gid=442268171) to track the weights for this, which I initially copied from [this page](https://liftvault.com/programs/strength/juggernaut-method-base-template-spreadsheet/), and modified so it was easier to do kg instead of lb.
