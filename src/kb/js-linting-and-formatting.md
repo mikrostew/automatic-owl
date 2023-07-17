@@ -1,9 +1,10 @@
 ---
 title: JavaScript Linting and Formatting
 description: Because I always forget how to set this up, and it changes with every major version bump
-layout: base-page
-extraCSS:
- - code-blocks
+layout: page
+wip: true
+cssFiles:
+- code-blocks
 
 ---
 
