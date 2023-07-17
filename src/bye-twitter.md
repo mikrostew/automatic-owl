@@ -1,7 +1,7 @@
 ---
 title: Leaving Twitter
 description: How I removed as much data as I could on my way out the door
-layout: base-page
+layout: page
 
 ---
 
