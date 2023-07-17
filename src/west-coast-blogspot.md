@@ -1,7 +1,8 @@
 ---
 title: West Coast Road Trip Posts from Blogspot
 description: Old blogspot posts from when I took a 6-week road trip to the west coast in 2012.
-layout: base-page
+layout: page
+wip: true
 
 ---
 
