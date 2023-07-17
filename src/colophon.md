@@ -1,7 +1,7 @@
 ---
 title: Colophon
 description: How this website is made
-layout: base-page
+layout: page
 
 ---
 
@@ -16,7 +16,7 @@ layout: base-page
 
 ### Technology
 
-This site is built with [Eleventy](https://github.com/11ty/eleventy), which I like so far --- it's fast and configurable.
+This site is built with [Eleventy](https://github.com/11ty/eleventy), which I like so far --- it's fast (enough) and configurable. I use a number of plugins, which you can see in my [.eleventy.js config file](https://github.com/mikrostew/automatic-owl/blob/main/.eleventy.js).
 
 I host this with [Netlify](https://www.netlify.com), which has been easy to setup and use.
 
