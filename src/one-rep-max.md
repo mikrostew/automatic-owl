@@ -1,8 +1,9 @@
 ---
 title: One Rep Max Calculator
 description: Estimate your one repetition max (1RM), and derive percentages and reps from that.
-layout: script
-scriptName: one-rep-max.js
+layout: page
+jsFiles:
+- one-rep-max
 
 ---
 
@@ -12,11 +13,11 @@ Weight:
 <input type="number" id="weight-input" name="weight" min="1" max="1500" value="125" size="6">
 <input type="radio" id="radio-lb" name="units" value="radio-lb" checked><label for="radio-lb">lbs</label>
 <input type="radio" id="radio-kg" name="units" value="radio-kg"><label for="radio-kg">kgs</label>
-<span id="weight-error" class="error none"></span>
+<p id="weight-error" class="error none"></p>
 
 Reps:
 <input type="number" id="reps-input" name="reps" min="1" max="50" value="8" size="3">
-<span id="reps-error" class="error none"></span>
+<p id="reps-error" class="error none"></p>
 
 Your estimated one rep max is: **<span id="one-rep-max"></span>**
 
