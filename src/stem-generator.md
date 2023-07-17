@@ -1,8 +1,9 @@
 ---
 title: Stem Generator
 description: Generate some bamboo-like shoots
-layout: script
-scriptName: stem-generator.js
+layout: page
+jsFiles:
+- stem-generator
 
 ---
 
