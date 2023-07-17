@@ -32,7 +32,7 @@ Group 2
 * Pigeon stretch - 2 x 60s
 
 Group 3
-* One-arm farmer walks (AKA suitcase carries) - 2 x 3 lengths of the indoor turf area (==TODO: how long is that?==)
+* One-arm farmer walks (AKA suitcase carries) - 2 x 3 lengths of the indoor turf area (I think it's 50ft long)
 * Child pose stretch - 2 x 60s
 
 ### Wednesday
@@ -79,7 +79,7 @@ Tire flips outside
 Notes:
 - ==TODO==
 
-Results:
+Results ([estimated 1RMs]({% link_to 'one-rep-max' %})):
 - ==TODO==
 
 
@@ -190,7 +190,7 @@ Group 2
 * Pigeon stretch - 2 x 60s
 
 Group 3
-* One-arm farmer walks (AKA suitcase carries) - 2 x 3 lengths of the indoor turf area (==TODO: how long is that?==)
+* One-arm farmer walks (AKA suitcase carries) - 2 x 3 lengths of the indoor turf area (I think it's 50ft long)
 * Lunge stretch - 2 x 60s
 
 ### Wednesday
@@ -231,9 +231,9 @@ Group 3
 
 :::
 
-Results:
-- Bench press [estimated 1RM]({% link_to 'one-rep-max' %}): 95kg &rarr; 104kg
-- OHP estimated 1RM: 53kg &rarr; 67kg
+Results ([estimated 1RMs]({% link_to 'one-rep-max' %})):
+- Bench press: 95kg &rarr; 104kg
+- OHP: 53kg &rarr; 67kg
 
 
 ### 1/9/2023 -- 3/24/2023
@@ -304,11 +304,90 @@ Group 4
 
 :::
 
-Results:
-- Bench press [estimated 1RM]({% link_to 'one-rep-max' %}): 76kg &rarr; 95kg
-- OHP estimated 1RM: 49kg &rarr; 53kg
-- Deadlift estimated 1RM: 132kg &rarr; 151kg
-- BB push press estimated 1RM: 55kg &rarr; 73kg
+Results ([estimated 1RMs]({% link_to 'one-rep-max' %})):
+- Bench press: 76kg &rarr; 95kg
+- OHP: 49kg &rarr; 53kg
+- Deadlift: 132kg &rarr; 151kg
+- BB push press: 55kg &rarr; 73kg
 
 
-[^juggernaut]: The [Juggernaut Method](https://www.jtsstrength.com/product/the-juggernaut-method-2-0/) uses block periodization to wave the weights and reps (good video by Alex Bromley [here](https://www.youtube.com/watch?v=S4zciARr6VE) on YouTube). I have a [spreadsheet](https://docs.google.com/spreadsheets/d/1PNb4qpkdaOsrGKtGahjG_ZePQ3rMH7mehV146f2vp4M/edit#gid=442268171) to track the weights for this, which I initially copied from [this page](https://liftvault.com/programs/strength/juggernaut-method-base-template-spreadsheet/), and modified so it was easier to do kg instead of lb.
+### 7/15/2022 --
+
+Got COVID, and was out of the gym for like a month.
+
+Then just played around with some of the strongman equipment, and did some lifts, and whatever I felt like.
+
+I wasn't consistent with going to the gym, and started running a little because I knew the Thanksgiving 5k was coming up.
+
+
+### 1/31/2022 -- 7/13/2022
+
+Summary:
+- 4 days/week, upper/lower split
+
+::: details Workout Details
+
+==TODO: did I make this up myself, or get the program from somewhere?==
+
+Each workout starts with 4 min treadmill warmup (walk 1m30s, jog 1m30s, walk 1m).
+
+I did switch up some exercises, as noted below.
+
+### Upper 1
+
+BB bench press - 4 x 4--6
+
+BB bent rows - 3 x 8--10
+
+Arnold Press - 3 x 10--12
+
+dips - 3 x 6--8
+
+close grip cable row - 3 x 10--12
+
+### Lower 1
+
+BB high bar squat - 4 x 4--6
+
+BB hip thrust - 3 x 8--10 (&rarr; KB swings - 3 x 10--12)
+
+DB walking lunges - 3 x 10--12
+
+seated calf raise - 2 x 15--20 (&rarr; stop doing)
+
+log clean and press - 8 x 1 (&rarr; sandbag over bar - 3 x 6--8)
+
+### Upper 2
+
+BB overhead press - 4 x 4--6
+
+DB underhand bench press - 3 x 8--10 (&rarr; incline DB bench - 3 x 8--10)
+
+neutral grip pullups - 3 x 6--8
+
+1 1/2 lateral raises - 3 x 12--15 (&rarr; 1-arm lateral raises - 3 x 10--12)
+
+machine flys - 3 x 10--12
+
+### Lower 2
+
+BB deadlift - 2 x 5 (&rarr; hex bar DL - 3 x 6--8)
+
+DB split squat - 3 x 8--10
+
+BB good mornings - 3 x 10--12
+
+DB goblet squat - 3 x 10--12
+
+farmer walk - 2 x out and back
+
+:::
+
+Results ([estimated 1RMs]({% link_to 'one-rep-max' %})):
+- Bench press: 96kg &rarr; 99kg
+- High bar squat: 222lb &rarr; 260lb
+- OHP: 120lb &rarr; 127lb
+- Deadlift: 146kg &rarr; 144kg
+
+
+[^juggernaut]: The [Juggernaut Method](https://www.jtsstrength.com/product/the-juggernaut-method-2-0/) uses block periodization to wave the weights and reps (good video by Alex Bromley [here](https://www.youtube.com/watch?v=S4zciARr6VE) on YouTube). I have a [spreadsheet](https://docs.google.com/spreadsheets/d/1PNb4qpkdaOsrGKtGahjG_ZePQ3rMH7mehV146f2vp4M/edit#gid=442268171) to track the weights for this, which I initially copied from [this page](https://liftvault.com/programs/strength/juggernaut-method-base-template-spreadsheet/), and modified so it was easier to use kg.
