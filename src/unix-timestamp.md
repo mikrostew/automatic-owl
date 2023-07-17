@@ -1,8 +1,9 @@
 ---
 title: Current Unix Timestamp
 description: Seconds since Jan 1, 1970
-layout: script
-scriptName: unix-timestamp.js
+layout: page
+jsFiles:
+- unix-timestamp
 
 ---
 
@@ -19,12 +20,12 @@ Current timestamps:
 
 <table>
 <tr>
-<td>Local date and time</td><td id="locale-timestamp"></td>
+<td>Local date and time:&nbsp;</td><td id="locale-timestamp"></td>
 </tr>
 <tr>
-<td>Unix (seconds)</td><td id="unix-timestamp-sec"></td>
+<td>Unix (seconds):&nbsp;</td><td id="unix-timestamp-sec"></td>
 </tr>
 <tr>
-<td>Unix (milliseconds)</td><td id="unix-timestamp-ms"></td>
+<td>Unix (milliseconds):&nbsp;</td><td id="unix-timestamp-ms"></td>
 </tr>
 </table>
