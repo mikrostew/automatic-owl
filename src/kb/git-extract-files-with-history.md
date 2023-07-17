@@ -1,9 +1,9 @@
 ---
 title: Extracting Files With Commit History From a Git Repo
 description: My quest to extract some files from my dotfiles repo, while maintaining their commit history.
-layout: base-page
-extraCSS:
- - code-blocks
+layout: page
+cssFiles:
+- code-blocks
 
 ---
 
