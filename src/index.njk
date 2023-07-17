@@ -1,16 +1,15 @@
 ---
 title: Home
 description: Hey, thanks for stopping by! 👋
-layout: base-page
+layout: page
+wip: true
 
 ---
 
-<section class="content">
+<p>Everything I've added to the site is listed on this page.</p>
 
-<p>Everything I've added to the site so far is listed on this page.</p>
-
-<h3>Linked To</h3>
-<p>Things I thought were interesting enough to post elsewhere.</p>
+<h3>Shared</h3>
+<p>Things I have posted elsewhere (because they are likely interesting to other folks).</p>
 
 {%- for item in collections.linkedTo %}
 <p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.lastUpdated | timestampToDateStr }})</p>
@@ -29,5 +28,3 @@ layout: base-page
 {%- for item in collections.updated %}
 <p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.lastUpdated | timestampToDateStr }})</p>
 {%- endfor %}
-
-</section>
