@@ -1,7 +1,7 @@
 ---
 title: Appalachian Trail Posts from Blogspot
 description: Old blogspot posts from when I attempted to thru hike the Appalachian Trail in 2011.
-layout: base-page
+layout: page
 
 ---
 
