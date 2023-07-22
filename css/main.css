@@ -2,10 +2,27 @@
 /* (adapted from https://dev.to/swyx/100-bytes-of-css-to-look-great-everywhere-19pd) */
 html {
   max-width: 70ch;
-  padding: 2em 0.5em;
-  margin: auto;
+  padding: 0 0.5em 1em;
+  margin: 0 auto;
   line-height: 1.5;
   font-size: 1.25em;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+header {
+  border-bottom: 1px solid black;
+  padding: 5px;
+}
+
+header > a.site-logo {
+  display: inline-block;
+  vertical-align: top;
+  line-height: 0;
+  color: black;
 }
 
 h1 {

@@ -25,9 +25,20 @@
 <link rel="stylesheet" type="text/css" href="/css/main.css" />
 {% endmacro %}
 
-{% macro header() %}
+{# include the svg directly in the header #}
+{% macro header(owlLogoSize=45) %}
 <header>
-<a href="/">automatic owl</a>
+<a class="site-logo" href="/">
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="40 90 590 435" width="{{ owlLogoSize }}" height="{{ owlLogoSize }}">
+  <g stroke="transparent" fill="currentColor" fill-opacity="1" >
+    <path d="M 250 427 L 315.5 514 L 381 426 L 359 414 L 315.5 473 L 272 414 Z" />
+    <path d="M 162 188 A 128 128 0 1 0 302 234 A 385 385 0 0 0 46 100 L 69 128 A 360 360 0 0 1 282 249 A 103 103 0 1 1 195 207 Z" />
+    <path d="M 526 271 A 103 103 0 1 1 334 276 A 385 385 0 0 0 622 177 H 584 A 360 360 0 0 1 318 249 A 128 128 0 1 0 549 260 Z" />
+    <path d="M 193 271 A 21 25 0 0 0 172 296 V 325 A 21 25 0 0 0 193 350 H 206 A 21 25 0 0 0 227 325 V 296 A 21 25 0 0 0 206 271 Z" />
+    <path d="M 418 341 A 5 5 0 0 0 423 346 H 440 A 5 5 0 0 0 444 341 V 275 A 5 5 0 0 0 439 270 H 423 A 5 5 0 0 0 418 275 Z" />
+  </g>
+</svg>
+</a>
 </header>
 {% endmacro %}
 
