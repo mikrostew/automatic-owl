@@ -1,0 +1,8 @@
+{% macro aboutMe() %}
+<p>I'm Michael — a software engineer, a husband, a dad, a <a href="https://github.com/mikrostew/recipes">decent cook</a>, a <a href="/weight-training/">recreational lifter</a>, and a <a href="/run-once-a-week/">patient runner</a>.</p>
+{% endmacro %}
+
+{% macro item(url, data) %}
+<p class="page-link"><a href="{{ url }}">{{ data.title }}</a></p>
+<p class="page-description">{{ data.description }}</p>
+{% endmacro %}

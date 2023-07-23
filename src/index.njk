@@ -1,30 +1,31 @@
 ---
 title: Home
-description: Hey, thanks for stopping by! 👋
+description: Hey! 👋 thanks for stopping by.
 layout: page
-wip: true
+eleventyExcludeFromCollections: true
 
 ---
+{% import "home-macros.njk" as home %}
 
-<p>Everything I've added to the site is listed on this page.</p>
+{{ home.aboutMe() }}
 
-<h3>Shared</h3>
+<p>This is my digital garden.</p>
+
+<h3 class="page-category">Shared</h3>
 <p>Things I have posted elsewhere (because they are likely interesting to other folks).</p>
 
 {%- for item in collections.linkedTo %}
-<p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.lastUpdated | timestampToDateStr }})</p>
+{{ home.item(item.url, item.data) }}
 {%- endfor %}
 
-<h3>In Progress</h3>
-<p>Things I am still working on, as I have time and interest.</p>
+<h3 class="page-category">In Progress</h3>
 
 {%- for item in collections.wip %}
-<p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.lastUpdated | timestampToDateStr }})</p>
+{{ home.item(item.url, item.data) }}
 {%- endfor %}
 
-<h3>Everything Else</h3>
-<p>Ordered by when they were last updated.</p>
+<h3 class="page-category">Everything Else</h3>
 
 {%- for item in collections.updated %}
-<p><a href="{{ item.url }}">{{ item.data.title }}</a> (updated {{ item.data.lastUpdated | timestampToDateStr }})</p>
+{{ home.item(item.url, item.data) }}
 {%- endfor %}
