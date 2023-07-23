@@ -55,7 +55,7 @@
 {%- set link %}<a href="{{ linkInfo.url }}">{{ linkInfo.text }}</a>{% endset %}
 {%- set links = links.concat(link) %}
 {%- endfor %}
-<em>(I linked to this page from {{ links | join(", ") | safe }})</em>
+<em>(I shared this post on {{ links | join(", ") | safe }})</em>
 </section>
 {% endif %}
 {% endmacro %}
