@@ -11,7 +11,7 @@
 
 (() => {
   // don't process this date or anything after it
-  const STOP_AT_DATE = '6/29/2023';
+  const STOP_AT_DATE = '7/25/2023';
   const TRACKED_ACTIVITIES = ['Run', 'Hike'];
   let hitStopDate = false;
   const activityData = {};

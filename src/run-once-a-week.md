@@ -32,8 +32,10 @@ jsFiles:
 
 [^june-weeks]: Didn't run two weeks in June. First week, the whole family was sick, and then it was really smoky outside from the Canadian fires. The other week, we did a family trip and I didn't feel like running during that.
 
-### July
+### July[^july-weeks]
 {{ calendar.monthRunTable(2023, 7, activities) }}
+
+[^july-weeks]: Don't remember why I didn't run the first week of July, maybe because of the holiday? ¯&bsol;\_(ツ)\_/¯
 
 ### August
 {{ calendar.monthRunTable(2023, 8, activities) }}
